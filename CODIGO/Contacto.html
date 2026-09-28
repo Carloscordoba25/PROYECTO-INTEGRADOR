@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="formulario">
+        <form action="mailto:cacordoba@cesde.net, andrduque@cesde.net" method="post" enctype="text/plain">
+            <div class="datos">
+                <label for ="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder= "Ingresa tu nombre completo" required><br><br>
+            </div>
+
+            <div class="datos">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder= "ejemplo@dominio.com"required><br><br>
+            </div>
+
+            <div class="pais">
+                 <label for="pais">Pais:</label>
+                <select name="pais" id="pais">
+                <option value="Colombia">Colombia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Peru">Perú</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Chile">Chile</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Brasil">Brasil</option>
+                </select>
+            </div>
+
+
+
+            <fieldset class="intereses">
+                <legend>Intereses</legend>
+
+                <input type="checkbox" name="intereses" id="Laptops" value="Laptops">
+                <label for="Laptops">Laptops</label>
+
+                <input type="checkbox" name="intereses" id="Smartwatches" value="Smartwatches">
+                <label for="Smartwatches">Smartwatches</label>
+
+                <input type="checkbox" name="intereses" id="Tablets" value="Tablets">
+                <label for="Tablets">Tablets</label>
+
+                <input type="checkbox" name="intereses" id="Consolas" value="Consolas">
+                <label for="Consolas">Consolas</label>
+
+                <input type="checkbox" name="intereses" id="Drones" value="Drones">
+                <label for="Drones">Drones</label>
+
+                <input type="checkbox" name="intereses" id="Speaker" value="Speaker">
+                <label for="Speaker">Speaker</label>
+            
+            </fieldset>
+
+             <div class="mensaje">
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje" cols="100" rows="10"></textarea>
+             </div>
+
+             <div class="envio">
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpiar</button>
+             </div>
+
+
+        </form>
+
+         <div class="contenedor_Home">
+                <a href="Pagina_Principal.html">
+                    <button class="Home">Home</button>
+                </a>
+            </div>
+
+
+    </div>
+    
+</body>
+</html>
