@@ -1,190 +1,208 @@
 # PRODUCT BACKLOG
-## Plataforma de Turismo Inclusivo
+## Proyecto MapPal
  
 ---
  
-# 1. Gestión de Personas y Usuarios
+# 1. Gestión de Usuarios Globales
  
 ## Descripción
  
-Implementar la estructura base para administrar todas las personas registradas dentro de la plataforma.
+Permitir el registro y administración de usuarios internacionales y residentes locales.
  
 ## Features
  
-### 1.1 Modelo Persona
+### 1.1 Registro de Usuarios
  
-- Crear clase abstracta Persona.
-- Registrar identificador único.
-- Registrar nombre y apellido.
-- Registrar documento de identidad.
-- Registrar teléfono.
-- Registrar correo electrónico.
-- Registrar fecha de nacimiento.
-- Registrar estado activo/inactivo.
-- Calcular edad automáticamente.
+- Registro de datos personales.
+- Registro de residencia activa.
+- Registro de idioma preferido.
+- Validación de identificador único.
+- Cálculo automático de edad.
  
-### 1.2 Registro de Turistas
+### 1.2 Gestión de Perfil
  
-- Crear entidad Turista.
-- Asociar Turista con Persona.
-- Registrar nacionalidad.
-- Registrar idioma preferido.
-- Editar información personal.
-- Validar documento único.
+- Visualización de perfil.
+- Actualización de información personal.
+- Gestión de preferencias de idioma.
  
-### 1.3 Registro de Guías y Conductores
+### 1.3 Internacionalización
  
-- Crear entidad GuíaConductor.
-- Asociar GuíaConductor con Persona.
+- Soporte multilenguaje.
+- Configuración regional.
+- Adaptación de interfaz según idioma.
+ 
+---
+ 
+# 2. Sistema de Reputación y Karma
+ 
+## Descripción
+ 
+Gestionar la confianza y reputación de los miembros de la comunidad.
+ 
+## Features
+ 
+### 2.1 Gestión de Karma
+ 
+- Asignación automática de Karma.
+- Incremento por aportes válidos.
+- Historial de puntuación.
+ 
+### 2.2 Niveles de Confianza
+ 
+- Nivel 1 a Nivel 5.
+- Embajador Oficial de Ciudad.
+- Clasificación automática.
+ 
+### 2.3 Identidad Geoverificada
+ 
+- Validación de ubicación.
+- Generación de insignias.
+- Verificación de residencia.
+ 
+---
+ 
+# 3. Canales Comunitarios en Vivo
+ 
+## Descripción
+ 
+Permitir conversaciones organizadas por ciudades, barrios y temas.
+ 
+## Features
+ 
+### 3.1 Gestión de Destinos
+ 
+- Registro de ciudades.
+- Registro de barrios.
+- Consulta de destinos.
+ 
+### 3.2 Canales Temáticos
+ 
+- #puntos-de-interes
+- #restaurantes
+- #transporte
+- #alojamiento
+- #lugares-a-evitar
+- #actividades-y-tours
+ 
+### 3.3 Publicaciones
+ 
+- Crear publicaciones.
+- Adjuntar fotografías.
+- Asociar ubicación GPS.
+- Editar publicaciones.
+- Eliminar publicaciones.
+ 
+### 3.4 Interacción Comunitaria
+ 
+- Votaciones.
+- Comentarios.
+- Ordenamiento por popularidad.
+- Ordenamiento por fecha.
+ 
+---
+ 
+# 4. Sistema de Alertas Comunitarias
+ 
+## Descripción
+ 
+Permitir la creación, consulta y validación de alertas de seguridad.
+ 
+## Features
+ 
+### 4.1 Registro de Alertas
+ 
+- Crear alerta.
+- Registrar coordenadas GPS.
+- Registrar fotografías.
+- Definir nivel de riesgo.
+ 
+### 4.2 Auditoría Comunitaria
+ 
+- Votaciones positivas.
+- Votaciones negativas.
+- Cálculo de confiabilidad.
+ 
+### 4.3 Protocolos de Seguridad
+ 
+- Recomendaciones preventivas.
+- Guías de supervivencia nocturna.
+- Números de emergencia.
+ 
+### 4.4 Mapa de Alertas
+ 
+- Visualización geográfica.
+- Visualización por densidad.
+- Consulta histórica.
+ 
+---
+ 
+# 5. Motor de Accesibilidad Universal
+ 
+## Descripción
+ 
+Garantizar que los viajeros encuentren servicios compatibles con sus necesidades.
+ 
+## Features
+ 
+### 5.1 Catálogo de Etiquetas
+ 
+- Accesibilidad física.
+- Accesibilidad sensorial.
+- Accesibilidad cognitiva.
+- Accesibilidad de comunicación.
+ 
+### 5.2 Configuración de Necesidades
+ 
+- Selección de filtros.
+- Gestión de preferencias.
+- Actualización de requerimientos.
+ 
+### 5.3 Búsqueda Inclusiva
+ 
+- Filtrar rutas.
+- Filtrar vehículos.
+- Filtrar guías.
+- Filtrar comercios.
+ 
+### 5.4 Verificación de Compatibilidad
+ 
+- Cruce de atributos.
+- Exclusión automática de resultados incompatibles.
+- Visualización de coincidencias.
+ 
+---
+ 
+# 6. Gestión de Prestadores Locales
+ 
+## Descripción
+ 
+Administrar los servicios ofrecidos por guías, conductores y comercios.
+ 
+## Features
+ 
+### 6.1 Registro de Prestadores
+ 
+- Registro de guía.
+- Registro de conductor.
+- Registro de comercio.
+ 
+### 6.2 Gestión de Tarifas
+ 
 - Registrar tarifa base.
-- Registrar certificaciones.
-- Gestionar calificaciones.
-- Mostrar información pública del perfil.
+- Actualizar tarifas.
+- Consultar tarifas.
  
----
+### 6.3 Gestión de Especializaciones
  
-# 2. Gestión de Comercios Locales
+- Registro de certificaciones.
+- Registro de accesibilidad.
+- Validación de certificados.
  
-## Descripción
+### 6.4 Sistema de Insignias
  
-Permitir el registro y administración de comercios locales dentro del ecosistema turístico.
- 
-## Features
- 
-### 2.1 Registro de Comercios
- 
-- Registrar nombre comercial.
-- Registrar tipo de comercio.
-- Registrar dirección.
-- Registrar horario de atención.
-- Registrar tarifa base.
- 
-### 2.2 Gestión de Accesibilidad
- 
-- Asociar etiquetas inclusivas.
-- Editar etiquetas inclusivas.
-- Visualizar condiciones de accesibilidad.
- 
-### 2.3 Integración con Prestadores Locales
- 
-- Implementar contrato PrestadorLocal.
-- Permitir recepción de reservas.
-- Permitir obtención de insignias.
- 
----
- 
-# 3. Gestión de Vehículos
- 
-## Descripción
- 
-Administrar los vehículos utilizados por los conductores registrados.
- 
-## Features
- 
-### 3.1 Registro de Vehículos
- 
-- Registrar placa.
-- Registrar capacidad de pasajeros.
-- Registrar disponibilidad.
- 
-### 3.2 Accesibilidad del Vehículo
- 
-- Registrar capacidad para silla de ruedas.
-- Registrar rutas accesibles.
-- Asociar etiquetas inclusivas.
- 
-### 3.3 Validaciones
- 
-- Evitar placas duplicadas.
-- Validar capacidad de pasajeros.
-- Mantener integridad de la información.
- 
----
- 
-# 4. Gestión de Accesibilidad
- 
-## Descripción
- 
-Permitir experiencias turísticas inclusivas mediante filtros inteligentes.
- 
-## Features
- 
-### 4.1 Catálogo de Etiquetas Inclusivas
- 
-- Crear etiquetas de accesibilidad física.
-- Crear etiquetas sensoriales y cognitivas.
-- Crear etiquetas de comunicación.
- 
-### 4.2 Configuración de Preferencias
- 
-- Seleccionar etiquetas requeridas.
-- Actualizar preferencias.
-- Almacenar preferencias del turista.
- 
-### 4.3 Motor de Filtrado
- 
-- Filtrar prestadores compatibles.
-- Filtrar vehículos compatibles.
-- Filtrar comercios compatibles.
-- Mostrar coincidencias encontradas.
- 
----
- 
-# 5. Gestión de Prestadores Especializados
- 
-## Descripción
- 
-Reconocer y destacar prestadores que ofrecen servicios inclusivos.
- 
-## Features
- 
-### 5.1 Gestión de Certificaciones
- 
-- Registrar certificados.
-- Validar certificados.
-- Asociar certificados a perfiles.
- 
-### 5.2 Sistema de Insignias
- 
-- Calcular elegibilidad.
-- Asignar insignia automáticamente.
-- Retirar insignia cuando corresponda.
- 
-### 5.3 Priorización de Resultados
- 
-- Priorizar perfiles especializados.
-- Mostrar insignias en resultados.
-- Resaltar perfiles especializados.
- 
----
- 
-# 6. Búsqueda de Servicios Turísticos
- 
-## Descripción
- 
-Permitir que los turistas encuentren prestadores compatibles con sus necesidades.
- 
-## Features
- 
-### 6.1 Búsqueda de Prestadores
- 
-- Buscar guías.
-- Buscar conductores.
-- Buscar comercios.
- 
-### 6.2 Aplicación de Filtros
- 
-- Filtrar por accesibilidad.
-- Filtrar por categoría.
-- Filtrar por idioma.
-- Filtrar por ubicación.
- 
-### 6.3 Visualización de Resultados
- 
-- Mostrar perfiles.
-- Mostrar calificaciones.
-- Mostrar insignias.
-- Mostrar etiquetas inclusivas.
+- Servicio Especializado.
+- Asignación automática.
+- Visualización pública.
  
 ---
  
@@ -192,113 +210,83 @@ Permitir que los turistas encuentren prestadores compatibles con sus necesidades
  
 ## Descripción
  
-Administrar el proceso completo de contratación de servicios turísticos.
+Permitir la contratación de servicios turísticos.
  
 ## Features
  
-### 7.1 Creación de Reservas
+### 7.1 Reservas
  
 - Crear reserva.
-- Asociar turista.
-- Asociar prestador.
-- Asociar itinerario.
+- Consultar reserva.
+- Modificar reserva.
+- Cancelar reserva.
  
-### 7.2 Estados de Reserva
+### 7.2 Gestión de Itinerarios
+ 
+- Asociar itinerario.
+- Consultar itinerarios.
+- Actualizar itinerarios.
+ 
+### 7.3 Estados de Reserva
  
 - Pendiente.
 - Confirmada.
 - Completada.
 - Cancelada.
  
-### 7.3 Historial
- 
-- Registrar cambios de estado.
-- Consultar historial.
-- Auditar reservas.
- 
 ---
  
-# 8. Gestión de Pagos
+# 8. Gestión de Pagos Directos
  
 ## Descripción
  
-Permitir pagos directos entre turistas y prestadores locales.
+Realizar pagos entre turistas y prestadores sin intermediarios.
  
 ## Features
  
 ### 8.1 Procesamiento de Pagos
  
 - Registrar pago.
-- Validar transacción.
 - Confirmar pago.
+- Validar transacción.
  
-### 8.2 Gestión Financiera
+### 8.2 Historial Financiero
  
-- Registrar ingresos.
-- Asociar pagos a reservas.
-- Consultar historial de pagos.
+- Consultar pagos.
+- Consultar ingresos.
+- Consultar reservas pagadas.
  
 ### 8.3 Trazabilidad
  
-- Registrar fecha de pago.
-- Registrar monto pagado.
-- Mantener historial de transacciones.
+- Registrar fecha.
+- Registrar monto.
+- Registrar estado de la transacción.
  
 ---
  
-# 9. Gestión de Perfiles
+# 9. Exploración y Búsqueda Global
  
 ## Descripción
  
-Permitir la administración y consulta de información pública y privada.
+Permitir la exploración de destinos mediante información urbana en tiempo real.
  
 ## Features
  
-### 9.1 Perfil de Turista
+### 9.1 Buscador Global
  
-- Consultar información.
-- Editar información.
-- Actualizar preferencias.
+- Buscar por ciudad.
+- Buscar por barrio.
+- Buscar por alertas.
  
-### 9.2 Perfil de Prestador
+### 9.2 Información de Destino
  
-- Consultar información.
-- Editar servicios.
-- Actualizar vehículos.
-- Actualizar certificaciones.
+- Índice de seguridad.
+- Calidad del transporte.
+- Calidad del aire.
+- Actividad comunitaria.
  
-### 9.3 Perfil Público
+### 9.3 Resultados Inteligentes
  
-- Mostrar datos relevantes.
-- Mostrar calificaciones.
-- Mostrar insignias.
-- Mostrar accesibilidad.
- 
----
- 
-# 10. Reportes y Administración
- 
-## Descripción
- 
-Proporcionar herramientas de supervisión para la plataforma.
- 
-## Features
- 
-### 10.1 Administración de Usuarios
- 
-- Consultar usuarios.
-- Activar usuarios.
-- Desactivar usuarios.
- 
-### 10.2 Reportes Operativos
- 
-- Consultar reservas.
-- Consultar pagos.
-- Consultar prestadores activos.
- 
-### 10.3 Métricas de Inclusión
- 
-- Prestadores especializados registrados.
-- Vehículos accesibles registrados.
-- Comercios accesibles registrados.
-- Reservas inclusivas realizadas.
+- Ordenamiento por relevancia.
+- Ordenamiento por reputación.
+- Ordenamiento por nivel de verificación.
