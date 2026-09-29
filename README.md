@@ -1,101 +1,198 @@
-# 🌎 RutaNativa
+# 🌍 MAPPAL
+## Red Descentralizada de Inteligencia Territorial y Turismo Universal
  
-## Plataforma web de turismo universal con comercio justo y accesibilidad integral
- 
-RutaNativa es una plataforma web que conecta directamente a turistas con guías, conductores y comercios locales independientes, eliminando intermediarios y promoviendo un modelo de comercio justo.
- 
-La plataforma incorpora un sistema avanzado de accesibilidad que permite a los usuarios encontrar experiencias compatibles con necesidades físicas, sensoriales, cognitivas y de comunicación.
+> *"La comunidad global que mapea el mundo real"*
  
 ---
  
-## 📋 Tabla de Contenidos
+## 📌 Descripción General
  
-- Descripción del Proyecto
-- Objetivos
-- Problemática
-- Solución Propuesta
-- Tecnologías
-- Arquitectura del Sistema
-- Historias de Usuario
-- Estructura del Proyecto
-- Equipo de Desarrollo
-- Estado del Proyecto
+**MapPal** es una plataforma web colaborativa orientada al turismo universal y la inteligencia territorial comunitaria. Su propósito es conectar viajeros internacionales, turistas con necesidades de accesibilidad, residentes locales, guías, conductores y comercios de barrio mediante una red descentralizada de información en tiempo real.
+ 
+La plataforma permite descubrir destinos, compartir recomendaciones honestas, reportar alertas de seguridad geolocalizadas, encontrar servicios accesibles y realizar reservas directas con prestadores locales, eliminando intermediarios.
  
 ---
  
-# 📖 Descripción del Proyecto
+## 🎯 Objetivo del Proyecto
  
-RutaNativa busca transformar la forma en que los turistas acceden a experiencias locales, permitiendo una interacción directa con prestadores de servicios turísticos y comercios locales.
+Desarrollar una plataforma web Full Stack que facilite la interacción entre viajeros y comunidades locales mediante:
  
-Su principal diferenciador es un motor de accesibilidad capaz de relacionar los requerimientos específicos de cada turista con las características verificadas de:
- 
-- Guías turísticos
-- Conductores locales
-- Vehículos
-- Comercios
-- Experiencias turísticas
+- Inteligencia urbana colaborativa.
+- Turismo inclusivo y accesible.
+- Alertas comunitarias verificadas.
+- Reservas y pagos directos.
+- Reputación basada en confianza y contribución comunitaria.
  
 ---
  
-# 🎯 Objetivos
+## 🚀 Problema que Resuelve
  
-## Objetivo General
+Las plataformas tradicionales de turismo presentan diversos inconvenientes:
  
-Desarrollar una plataforma web que automatice el emparejamiento entre turistas y prestadores locales mediante criterios de destino, experiencia y accesibilidad.
+- Información desactualizada o poco confiable.
+- Intermediación excesiva en reservas y pagos.
+- Escasa información sobre accesibilidad.
+- Falta de alertas de seguridad en tiempo real.
+- Poca integración con comunidades locales.
  
-## Objetivos Específicos
- 
-- Conectar turistas con prestadores locales sin intermediarios.
-- Garantizar pagos directos al trabajador o negocio local.
-- Implementar filtros inteligentes de accesibilidad.
-- Promover el turismo inclusivo.
-- Reconocer prestadores especializados mediante insignias.
-- Construir una solución Full Stack basada en Java y tecnologías web modernas.
+MapPal busca resolver estas problemáticas mediante una red colaborativa construida por los propios usuarios y residentes de cada ciudad.
  
 ---
  
-# 🚨 Problemática
+# 👥 Usuarios del Sistema
  
-Las plataformas tradicionales presentan varias limitaciones:
+## Viajeros Globales y Nómadas Digitales
  
-- Altas comisiones por intermediación.
-- Oferta turística poco flexible.
-- Escasa consideración de necesidades de accesibilidad.
-- Falta de mecanismos estandarizados para validar condiciones inclusivas.
+Usuarios interesados en explorar nuevos destinos con información actualizada y recomendaciones reales.
  
-Estas limitaciones afectan tanto a los turistas como a los trabajadores locales.
+## Turistas con Requerimientos de Accesibilidad
+ 
+Personas con necesidades físicas, sensoriales, cognitivas o de comunicación que requieren información validada sobre accesibilidad.
+ 
+## Residentes Locales y Local Insiders
+ 
+Miembros de la comunidad que comparten consejos, recomendaciones y alertas verificadas.
+ 
+## Guías, Conductores y Comercios Locales
+ 
+Prestadores de servicios que promocionan sus ofertas directamente a los turistas sin pagar comisiones de intermediación.
  
 ---
  
-# ✅ Solución Propuesta
+# 🏛 Arquitectura Funcional
  
-RutaNativa integra tres componentes principales:
+## Módulo de Exploración Global
  
-### 1. Comercio Justo
+Permite buscar información por:
  
-Conexión directa entre:
+- Ciudad
+- Barrio
+- Categoría
+- Nivel de seguridad
+- Accesibilidad
  
-- Turistas
-- Guías
-- Conductores
-- Comercios locales
+### Funcionalidades
  
-### 2. Motor de Accesibilidad
+- Búsqueda avanzada de destinos.
+- Consulta de indicadores urbanos.
+- Visualización de información en tiempo real.
  
-Filtrado inteligente basado en:
+---
  
-- Accesibilidad física
-- Accesibilidad sensorial
-- Accesibilidad cognitiva
-- Comunicación inclusiva
+## Módulo de Canales en Vivo
  
-### 3. Servicio Especializado
+Sistema comunitario inspirado en foros temáticos.
  
-Sistema de reconocimiento para prestadores capacitados mediante:
+### Canales disponibles
  
-- Certificaciones
-- Adaptaciones verificadas
-- Insignias visibles en el perfil
+- #puntos-de-interes
+- #lugares-a-evitar
+- #restaurantes
+- #transporte
+- #alojamiento
+- #actividades-y-tours
+ 
+### Funcionalidades
+ 
+- Publicaciones comunitarias.
+- Comentarios.
+- Votaciones.
+- Geolocalización.
+- Compartir fotografías.
+ 
+---
+ 
+## Módulo de Alertas Comunitarias
+ 
+Permite reportar situaciones que puedan afectar a la comunidad.
+ 
+### Casos de uso
+ 
+- Estafas.
+- Carteristas.
+- Cobros excesivos.
+- Zonas inseguras.
+- Riesgos temporales.
+ 
+### Funcionalidades
+ 
+- Registro de coordenadas GPS.
+- Publicación de evidencias fotográficas.
+- Validación comunitaria.
+- Visualización mediante mapas.
+ 
+---
+ 
+## Módulo de Accesibilidad Universal
+ 
+Permite filtrar servicios según necesidades específicas.
+ 
+### Categorías
+ 
+- Accesibilidad física.
+- Accesibilidad sensorial.
+- Accesibilidad cognitiva.
+- Accesibilidad de comunicación.
+ 
+### Funcionalidades
+ 
+- Configuración de preferencias.
+- Filtrado inteligente.
+- Compatibilidad entre usuario y prestador.
+ 
+---
+ 
+## Módulo de Prestadores Locales
+ 
+Administra la oferta turística de la plataforma.
+ 
+### Prestadores
+ 
+- Guías turísticos.
+- Conductores.
+- Comercios locales.
+ 
+### Funcionalidades
+ 
+- Registro de servicios.
+- Gestión de tarifas.
+- Gestión de certificaciones.
+- Gestión de accesibilidad.
+- Sistema de insignias.
+ 
+---
+ 
+## Módulo de Reservas y Pagos
+ 
+Permite gestionar la contratación de servicios.
+ 
+### Funcionalidades
+ 
+- Creación de reservas.
+- Confirmación de reservas.
+- Gestión de estados.
+- Registro de pagos.
+- Trazabilidad de transacciones.
+ 
+---
+ 
+## Módulo de Reputación y Karma
+ 
+Sistema encargado de medir la confianza dentro de la comunidad.
+ 
+### Indicadores
+ 
+- Karma acumulado.
+- Aportes aprobados.
+- Alertas verificadas.
+- Nivel de confianza.
+- Embajador Oficial de Ciudad.
+ 
+### Beneficios
+ 
+- Mayor visibilidad.
+- Insignias de reconocimiento.
+- Priorización en búsquedas.
  
 ---
  
@@ -103,19 +200,21 @@ Sistema de reconocimiento para prestadores capacitados mediante:
  
 ## Backend
  
-- Java
+- Java 17
 - Spring Boot
+- Spring Data JPA
+- Spring Security
+- REST API
  
 ## Base de Datos
  
-- SQL Server
-- SQL
+- Microsoft SQL Server
  
 ## Frontend
  
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript ES6+
  
 ## Control de Versiones
  
@@ -124,120 +223,113 @@ Sistema de reconocimiento para prestadores capacitados mediante:
  
 ---
  
-# 🏗 Arquitectura del Sistema
+# 🗃 Modelo General de Entidades
  
-RutaNativa está basada en una arquitectura Full Stack compuesta por:
+## Usuarios
  
-```text
-Frontend
-│
-├── HTML
-├── CSS
-└── JavaScript
+- Persona
+- Turista
+- Local Insider
+- Guía
+- Conductor
  
-Backend
-│
-├── Java
-└── Spring Boot
+## Prestadores
  
-Persistencia
-│
-└── SQL Server
-```
+- Guía
+- Conductor
+- Comercio
  
----
+## Comunidad
  
-# 📂 Estructura del Proyecto
+- Canal
+- Publicación
+- Comentario
+- Alerta Comunitaria
  
-```text
-ruta-nativa/
-│
-├── README.md
-├── .gitignore
-│
-├── docs/
-│ ├── 01-brief/
-│ ├── 02-requerimientos/
-│ ├── 03-historias-usuario/
-│ ├── 04-diagramas/
-│ ├── 05-wireframes/
-│ ├── 06-mockups/
-│ ├── 07-base-datos/
-│ └── 08-presentacion/
-│
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ ├── resources/
-│ │ └── webapp/
-│ │
-│ └── test/
-│
-└── assets/
-```
+## Accesibilidad
+ 
+- Etiqueta Inclusiva
+- Certificación
+ 
+## Operación
+ 
+- Itinerario
+- Reserva
+- Pago
  
 ---
  
-# 👥 Público Objetivo
+# 🔒 Características No Funcionales
  
-- Turistas nacionales.
-- Turistas internacionales.
-- Personas con discapacidad física.
-- Personas con discapacidad sensorial.
-- Personas con discapacidad cognitiva.
-- Viajeros neurodivergentes.
-- Guías turísticos independientes.
-- Conductores locales.
-- Comercios locales.
+## Seguridad
+ 
+- Autenticación y autorización de usuarios.
+- Protección de datos personales.
+- Validación de transacciones.
+ 
+## Rendimiento
+ 
+- Consultas optimizadas.
+- Respuesta rápida en búsquedas.
+- Escalabilidad para múltiples destinos.
+ 
+## Accesibilidad
+ 
+- Interfaz responsive.
+- Compatibilidad con dispositivos móviles.
+- Diseño orientado a accesibilidad universal.
+ 
+## Mantenibilidad
+ 
+- Arquitectura por capas.
+- Código modular.
+- Documentación técnica.
  
 ---
  
-# 📑 Historias de Usuario Implementadas
+# 📈 Beneficios Esperados
  
-- HU-01 Registro de Persona
-- HU-02 Registro de Turista
-- HU-03 Registro de Guía o Conductor
-- HU-04 Registro de Comercio Local
-- HU-05 Registro de Vehículo
-- HU-06 Configuración de Filtros de Accesibilidad
-- HU-07 Insignia de Servicio Especializado
-- HU-08 Reserva y Pago Directo
+### Para los viajeros
  
-![EMBEDDEDIMAGE](placeholder-0)
+- Información confiable.
+- Alertas en tiempo real.
+- Turismo seguro e inclusivo.
  
----
+### Para los residentes locales
  
-# 🎓 Proyecto Académico
+- Participación comunitaria.
+- Reconocimiento por contribuciones.
  
-Desarrollado como proyecto integrador del programa:
+### Para los prestadores locales
  
-**Asistente en Desarrollo Web**
-**CESDE - Medellín**
+- Mayor visibilidad.
+- Reservas directas.
+- Eliminación de intermediarios.
+ 
+### Para las ciudades
+ 
+- Construcción de inteligencia territorial colectiva.
+- Promoción del turismo sostenible e inclusivo.
  
 ---
  
 # 👨‍💻 Equipo de Desarrollo
  
-- Carlos Alberto Córdoba Acevedo
-- Andrés Felipe Duque Hurtado
-- Leonardo Oscary Pinto Narváez
+**Carlos Alberto Córdoba Acevedo**
+**Andrés Felipe Duque Hurtado**
+**Leonardo Oscary Pinto Narváez**
  
 ---
  
-# 🚧 Estado del Proyecto
+# 🎓 Institución Académica
  
-Actualmente en fase de:
+**CESDE**
+Programa: **Asistente en Desarrollo Web**
  
-- ✅ Levantamiento de requerimientos
-- ✅ Historias de usuario
-- ✅ Diseño UML
-- 🔄 Diseño de interfaz (Wireframes y Mockups)
-- 🔄 Desarrollo Backend
-- 🔄 Desarrollo Frontend
-- ⏳ Pruebas e integración
+Medellín, Colombia
  
 ---
  
-## Licencia
+# 📄 Licencia Académica
  
-Proyecto académico desarrollado con fines educativos.
+Proyecto desarrollado con fines académicos como parte del Proyecto Integrador del programa de Asistente en Desarrollo Web de CESDE.
