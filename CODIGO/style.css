@@ -1,0 +1,37 @@
+header{border: 1px solid red;}
+.presentacion{border: 1px solid green;
+display: flex;
+flex-direction: column;
+align-items: center;}
+
+
+.estadisticas{border: 1px solid blue}
+.destinos{border: 1px solid orange}
+.discusiones{border: 1px solid brown}
+
+nav{display: flex;
+justify-content: space-between;
+align-items: center;}
+
+.logo{display: flex;
+align-items: center;
+gap: 20px;}
+
+.usuario{display: flex;
+gap:10px;
+align-items: center;}
+
+.busqueda{display: flex;
+
+}
+
+.infoPerfil{display: flex;
+flex-direction: column;}
+
+.filtrosRapidos{display: flex;
+gap:10px}
+
+.estadisticas{display: flex;
+gap:10px}
+
+.tarjetas{display: grid;}
