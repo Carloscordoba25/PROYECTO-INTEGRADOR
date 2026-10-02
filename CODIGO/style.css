@@ -2,12 +2,40 @@ header{border: 1px solid red;}
 .presentacion{border: 1px solid green;
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 350px;}
+
+
+.estadisticas{border: 1px solid blue;
+display: flex;
+justify-content: center;
 align-items: center;}
 
+.destinosYdiscusiones{border: 2px solid green;
+display: flex;
+display:grid;
+grid-template-columns: 2fr 1fr;
+justify-self:center;
+padding: 0 300px;
+gap: 20px;
+}
 
-.estadisticas{border: 1px solid blue}
-.destinos{border: 1px solid orange}
-.discusiones{border: 1px solid brown}
+.destinos{border: 1px solid orange;
+}
+
+.encabezado{display: flex;
+justify-content: space-between;}
+
+.discusiones{border: 1px solid brown;    
+}
+
+.interacciones{display:flex;
+width: 30px;    
+flex-direction: column;}
+
+.conversacion{display: flex;
+flex-direction: column;}
 
 nav{display: flex;
 justify-content: space-between;
@@ -32,6 +60,20 @@ flex-direction: column;}
 gap:10px}
 
 .estadisticas{display: flex;
-gap:10px}
+gap:10px;
+height: 100px;}
 
-.tarjetas{display: grid;}
+.metrica{
+    display: flex;
+    border: 1px solid red;
+    width: 300px;
+    justify-content: left;
+}
+
+
+.tarjetas{display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;}
+
+.tableros{display: grid;
+grid-template-columns: 1fr;}
