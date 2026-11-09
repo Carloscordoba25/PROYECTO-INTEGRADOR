@@ -1,3 +1,5 @@
+import { servicios } from '../api/servicios.js';
+
 const botonTurista = document.getElementById("boton-turista");
 const botonPrestador = document.getElementById("boton-prestador");
 const seccionTurista = document.getElementById("seccion-turista");
@@ -42,7 +44,7 @@ botonPrestador.addEventListener("click", () => seleccionarPerfil("prestador"));
 contrasenaRegistro.addEventListener("input", validarContrasenas);
 confirmacionContrasena.addEventListener("input", validarContrasenas);
 
-formularioRegistro.addEventListener("submit", (evento) => {
+formularioRegistro.addEventListener("submit", async (evento) => {
   evento.preventDefault();
   validarContrasenas();
 
@@ -50,6 +52,25 @@ formularioRegistro.addEventListener("submit", (evento) => {
     return;
   }
 
-  mensajeRegistro.textContent =
-    "Formulario validado. Para crear la cuenta, conecta este formulario con el servicio de registro.";
+  const rolSeleccionado = document.querySelector('.perfil-seleccionado')?.dataset.rol || 'turista';
+  const nombre = document.getElementById('nombre-viajero')?.value || '';
+  const correo = document.getElementById('correo-registro').value;
+  const contrasena = document.getElementById('contrasena-registro').value;
+
+  const resultado = await servicios.registrarUsuario({
+    nombre,
+    correo,
+    contrasena,
+    rol: rolSeleccionado === 'prestador' ? 'prestador' : 'turista',
+  });
+
+  if (resultado.ok) {
+    mensajeRegistro.textContent = 'Cuenta creada exitosamente';
+    mensajeRegistro.style.color = 'green';
+    mensajeRegistro.style.display = 'block';
+  } else {
+    mensajeRegistro.textContent = resultado.error;
+    mensajeRegistro.style.color = 'red';
+    mensajeRegistro.style.display = 'block';
+  }
 });
