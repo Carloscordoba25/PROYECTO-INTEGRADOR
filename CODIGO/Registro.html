@@ -100,57 +100,121 @@
             <input id="nombre-comercial" name="nombre-comercial" type="text" placeholder="Ej: Café Solar y Sabores Andinos" required disabled>
           </div>
           <div class="campo">
-            <label for="telefono-comercial"><span class="icono">call</span> Teléfono comercial / WhatsApp *
-            </label>
+            <label for="telefono-comercial"><span class="icono">call</span> Teléfono comercial / WhatsApp *</label>
             <input id="telefono-comercial" name="telefono-comercial" type="tel" placeholder="+56 9 8765 4321" autocomplete="tel" required disabled>
-         </div>
+          </div>
           <div class="campo campo-ancho">
             <label for="direccion-prestador">
                 <span class="icono">pin_drop</span> Dirección y geolocalización exacta *</label>
                 <input id="direccion-prestador" name="direccion" type="text" placeholder="Calle, número, ciudad y país" autocomplete="street-address" required disabled>
-            </div>
+          </div>
           <div class="campo campo-ancho">
             <label for="documento-prestador">
                 <span class="icono">upload_file</span> Documento de verificación (opcional)</label>
                 <input id="documento-prestador" name="documento" type="file" accept=".pdf,.jpg,.jpeg,.png" disabled>
                 <small>Formatos PDF, JPG o PNG. Tamaño máximo recomendado: 15 MB.</small>
-            </div>
+          </div>
         </div>
       </section>
 
       <!-- Módulo: compromiso de accesibilidad e inclusión -->
       <section class="seccion-registro" aria-labelledby="titulo-accesibilidad">
-        <div class="encabezado-seccion"><div class="titulo-seccion"><span class="etiqueta-fase">Fase 03</span><h2 id="titulo-accesibilidad">Compromiso de Accesibilidad e Inclusión Universal</h2></div><span id="estado-accesibilidad" class="sello-global"><span class="icono">handshake</span><span id="texto-accesibilidad">Opcional para Turistas / Recomendado</span></span></div>
+        <div class="encabezado-seccion">
+          <div class="titulo-seccion">
+            <span class="etiqueta-fase">Fase 03</span>
+            <h2 id="titulo-accesibilidad">Compromiso de Accesibilidad e Inclusión Universal</h2>
+          </div>
+          <span id="estado-accesibilidad" class="sello-global">
+            <span class="icono">handshake</span>
+            <span id="texto-accesibilidad">Opcional para Turistas / Recomendado</span>
+         </span>
+       </div>
         <p class="texto-intro-seccion">MappAl audita y visibiliza la infraestructura accesible real. Marca el equipamiento certificado o validado que tu espacio o expedición garantiza a la comunidad:</p>
         <div class="rejilla-accesibilidad">
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="rampa"><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">accessible</span> Rampa / Paso Nivel Cero</span><span class="descripcion-accesibilidad">Ingreso continuo sin gradas, rampas estándar (&lt;8% pendiente) o ascensor en funcionamiento.</span></span></label>
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="braille"><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">menu_book</span> Menú Braille / QR Sonoro</span><span class="descripcion-accesibilidad">Cartas táctiles transcritas o código QR verificado para lectores de pantalla.</span></span></label>
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="senas"><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">sign_language</span> Lengua de Señas (LSM/LSE)</span><span class="descripcion-accesibilidad">Atención básica en señas locales o soporte de videoguía gestual.</span></span></label>
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="sensorial"><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">psychology_alt</span> Espacio Sensorial Amigable</span><span class="descripcion-accesibilidad">Zonas de bajo estímulo sonoro, luces cálidas indirectas y horarios de baja afluencia adaptados.</span></span></label>
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="perros-guia" checked><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">pets</span> Perros Guía Bienvenidos</span><span class="descripcion-accesibilidad">Admisión de perros guía y animales de asistencia según las normativas locales.</span></span></label>
-          <label class="opcion-accesibilidad"><input name="accesibilidad" type="checkbox" value="asistencia"><span class="contenido-accesibilidad"><span class="titulo-accesibilidad"><span class="icono">accessible_forward</span> Acompañamiento Físico</span><span class="descripcion-accesibilidad">Asistencia personalizada para personas con movilidad reducida y traslados.</span></span></label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="rampa">
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad">
+                <span class="icono">accessible</span> Rampa / Paso Nivel Cero
+              </span>
+              <span class="descripcion-accesibilidad">Ingreso continuo sin gradas, rampas estándar (&lt;8% pendiente) o ascensor en funcionamiento.</span>
+            </span>
+          </label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="braille">
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad"><span class="icono">menu_book</span> Menú Braille / QR Sonoro</span>
+              <span class="descripcion-accesibilidad">Cartas táctiles transcritas o código QR verificado para lectores de pantalla.</span>
+            </span>
+          </label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="senas">
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad"><span class="icono">sign_language</span> Lengua de Señas (LSM/LSE)</span>
+              <span class="descripcion-accesibilidad">Atención básica en señas locales o soporte de videoguía gestual.</span>
+            </span>
+          </label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="sensorial">
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad"><span class="icono">psychology_alt</span> Espacio Sensorial Amigable</span>
+              <span class="descripcion-accesibilidad">Zonas de bajo estímulo sonoro, luces cálidas indirectas y horarios de baja afluencia adaptados.</span>
+            </span>
+          </label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="perros-guia" checked>
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad"><span class="icono">pets</span> Perros Guía Bienvenidos</span>
+              <span class="descripcion-accesibilidad">Admisión de perros guía y animales de asistencia según las normativas locales.</span>
+            </span>
+          </label>
+          <label class="opcion-accesibilidad">
+            <input name="accesibilidad" type="checkbox" value="asistencia">
+            <span class="contenido-accesibilidad">
+              <span class="titulo-accesibilidad"><span class="icono">accessible_forward</span> Acompañamiento Físico</span>
+              <span class="descripcion-accesibilidad">Asistencia personalizada para personas con movilidad reducida y traslados.</span>
+            </span>
+          </label>
         </div>
       </section>
 
       <!-- Módulo: consentimiento y normas comunitarias -->
       <section class="seccion-registro seccion-consentimiento" aria-labelledby="titulo-consentimiento">
-        <div class="encabezado-seccion"><div class="titulo-seccion"><span class="etiqueta-fase">Fase 04</span><h2 id="titulo-consentimiento">Consentimiento Comunitario</h2></div></div>
+        <div class="encabezado-seccion">
+          <div class="titulo-seccion">
+            <span class="etiqueta-fase">Fase 04</span>
+            <h2 id="titulo-consentimiento">Consentimiento Comunitario</h2>
+          </div>
+        </div>
         <div class="lista-consentimientos">
-          <label class="opcion-consentimiento"><input name="acepta-conducta" type="checkbox" required><span>Acepto el <strong>Código de Conducta y Normas Comunitarias de MappAl</strong>. Me comprometo a compartir datos verídicos, alertas imparciales y respetar las verificaciones colectivas.</span></label>
-          <label class="opcion-consentimiento"><input name="acepta-privacidad" type="checkbox" required><span>Acepto la <strong>Política de Datos Abiertos y Privacidad Cifrada</strong>. Entiendo que los marcadores geográficos y reportes aportados forman parte del bien público digital de libre acceso para peatones y viajeros.</span></label>
+          <label class="opcion-consentimiento">
+            <input name="acepta-conducta" type="checkbox" required>
+            <span>Acepto el <strong>Código de Conducta y Normas Comunitarias de MappAl</strong>. Me comprometo a compartir datos verídicos, alertas imparciales y respetar las verificaciones colectivas.</span>
+          </label>
+          <label class="opcion-consentimiento">
+            <input name="acepta-privacidad" type="checkbox" required>
+            <span>Acepto la <strong>Política de Datos Abiertos y Privacidad Cifrada</strong>. Entiendo que los marcadores geográficos y reportes aportados forman parte del bien público digital de libre acceso para peatones y viajeros.</span>
+          </label>
         </div>
       </section>
 
       <!-- Módulo: creación de cuenta y acceso existente -->
       <div class="acciones-registro">
-        <button class="boton-crear-cuenta" type="submit"><span class="icono">hub</span><span>Crear Cuenta y Unirse a la Red</span></button>
-        <p class="enlace-inicio-sesion">¿Ya tienes una cuenta registrada? <a href="InicioSesion.html">Inicia sesión <span class="icono">arrow_forward</span></a></p>
+        <button class="boton-crear-cuenta" type="submit">
+          <span class="icono">hub</span>
+          <span>Crear Cuenta y Unirse a la Red</span>
+        </button>
+        <p class="enlace-inicio-sesion">¿Ya tienes una cuenta registrada? <a href="InicioSesion.html">Inicia sesión <span class="icono">arrow_forward</span></a>
+        </p>
         <p id="mensaje-registro" class="mensaje-formulario" role="status" aria-live="polite"></p>
       </div>
     </form>
 
     <!-- Módulo: estado y pie de red -->
-    <footer class="pie-registro"><span><span class="indicador-activo"></span> Nivel de confianza de la red: 99.4% precisión geoespacial</span><span>LATAM // GLB-NET <span class="separador-pie">·</span> Encriptación SHA-256</span></footer>
+    <footer class="pie-registro">
+      <span><span class="indicador-activo"></span> Nivel de confianza de la red: 99.4% precisión geoespacial</span>
+      <span>LATAM // GLB-NET <span class="separador-pie">·</span> Encriptación SHA-256</span>
+    </footer>
   </main>
 </body>
 </html>

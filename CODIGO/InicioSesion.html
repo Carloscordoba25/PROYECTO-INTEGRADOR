@@ -15,40 +15,93 @@
   <main class="contenedor-sesion">
     <!-- Módulo: presentación de la red -->
     <section class="panel-presentacion-sesion" aria-label="Información de MappAl">
-      <div class="marca-sesion"><span class="icono icono-marca-sesion">explore</span><span class="nombre-marca-sesion">Mapp<span>Al</span></span><span class="estado-sesion">Nodo V4.12 activo</span></div>
+      <div class="marca-sesion">
+        <span class="icono icono-marca-sesion">explore</span>
+        <span class="nombre-marca-sesion">Mapp<span>Al</span></span>
+        <span class="estado-sesion">Nodo V4.12 activo</span>
+      </div>
       <div class="introduccion-sesion">
         <p class="texto-mono texto-verde">Inteligencia geocomunitaria</p>
         <h1>Tu identidad comunitaria respalda la seguridad territorial.</h1>
         <p>Acceso unificado con validación cruzada. Cada reporte audita rutas seguras, accesibilidad urbana y comercios locales verídicos.</p>
       </div>
       <div class="resumen-red">
-        <div class="encabezado-resumen"><span><span class="indicador-activo"></span> Red en Tiempo Real</span><span class="etiqueta-auditoria">Auditado 99.4%</span></div>
-        <div class="metricas-red"><div class="tarjeta-metrica"><strong>+42k</strong><span>Tips geolocalizados validados</span></div><div class="tarjeta-metrica"><strong>1,890</strong><span>Comercios locales seguros</span></div></div>
+        <div class="encabezado-resumen">
+          <span><span class="indicador-activo"></span> Red en Tiempo Real</span>
+          <span class="etiqueta-auditoria">Auditado 99.4%</span>
+        </div>
+        <div class="metricas-red">
+          <div class="tarjeta-metrica"><strong>+42k</strong><span>Tips geolocalizados validados</span></div>
+          <div class="tarjeta-metrica"><strong>1,890</strong><span>Comercios locales seguros</span></div>
+        </div>
         <p class="texto-mono texto-garantias">Garantías de Navegación Inclusiva:</p>
-        <div class="etiquetas-garantia"><span><span class="icono">accessible</span> Rampas 100% verificadas</span><span><span class="icono">visibility</span> Lectura sensorial</span></div>
+        <div class="etiquetas-garantia">
+          <span><span class="icono">accessible</span> Rampas 100% verificadas</span>
+          <span><span class="icono">visibility</span> Lectura sensorial</span>
+        </div>
       </div>
-      <div class="mapa-decorativo"><div class="trazo-mapa trazo-mapa-uno"></div><div class="trazo-mapa trazo-mapa-dos"></div><span class="marcador-mapa marcador-uno"><span class="icono">location_on</span></span><span class="marcador-mapa marcador-dos"><span class="icono">location_on</span></span><div class="estado-mapa"><span><span class="icono">verified_user</span> Nodo Central Conectado</span><span>Latencia: 24ms</span></div></div>
+      <div class="mapa-decorativo">
+        <div class="trazo-mapa trazo-mapa-uno"></div>
+        <div class="trazo-mapa trazo-mapa-dos"></div>
+        <span class="marcador-mapa marcador-uno"><span class="icono">location_on</span></span>
+        <span class="marcador-mapa marcador-dos"><span class="icono">location_on</span></span>
+        <div class="estado-mapa">
+          <span><span class="icono">verified_user</span> Nodo Central Conectado</span>
+          <span>Latencia: 24ms</span>
+        </div>
+      </div>
       <div class="pie-presentacion-sesion"><span>Cifrado Cuántico v2</span><span>ID Territorial Seguro</span></div>
     </section>
 
     <!-- Módulo: formulario de acceso -->
     <section class="panel-acceso-sesion" aria-labelledby="titulo-acceso">
-      <div class="encabezado-acceso"><div><p class="texto-mono texto-verde">Acceso seguro a la red</p><h2 id="titulo-acceso">Iniciar Sesión en MappAl</h2><p>Explora rutas verificadas, comparte alertas comunitarias y acumula karma de navegante.</p></div><span id="modo-acceso" class="modo-acceso">Modo Explorador</span></div>
+      <div class="encabezado-acceso">
+        <div><p class="texto-mono texto-verde">Acceso seguro a la red</p><h2 id="titulo-acceso">Iniciar Sesión en MappAl</h2>
+          <p>Explora rutas verificadas, comparte alertas comunitarias y acumula karma de navegante.</p>
+        </div>
+        <span id="modo-acceso" class="modo-acceso">Modo Explorador</span>
+      </div>
       <div class="selector-rol-sesion" role="group" aria-label="Tipo de cuenta">
-        <button class="boton-rol-sesion rol-seleccionado" type="button" data-rol="explorador" aria-pressed="true"><span class="icono">explore</span> Explorador</button>
-        <button class="boton-rol-sesion" type="button" data-rol="prestador" aria-pressed="false"><span class="icono">store</span> Prestador Local</button>
-        <button class="boton-rol-sesion" type="button" data-rol="administrador" aria-pressed="false"><span class="icono">admin_panel_settings</span> Administrador</button>
+        <button class="boton-rol-sesion rol-seleccionado" type="button" data-rol="explorador" aria-pressed="true">
+          <span class="icono">explore</span> Explorador</button>
+        <button class="boton-rol-sesion" type="button" data-rol="prestador" aria-pressed="false">
+          <span class="icono">store</span> Prestador Local</button>
+        <button class="boton-rol-sesion" type="button" data-rol="administrador" aria-pressed="false">
+          <span class="icono">admin_panel_settings</span> Administrador</button>
       </div>
       <form id="formulario-sesion" class="formulario-sesion">
-        <div class="campo-sesion"><label for="correo-acceso">Correo electrónico o nombre de usuario</label><div class="entrada-sesion"><span class="icono">mail</span><input id="correo-acceso" name="usuario" type="text" placeholder="ejemplo@explorador.mappal.org" autocomplete="username" required></div></div>
-        <div class="campo-sesion"><div class="fila-etiqueta-contrasena"><label for="contrasena-acceso">Contraseña</label><button id="boton-recuperacion" class="boton-enlace-sesion" type="button">¿Olvidaste tu contraseña?</button></div><div class="entrada-sesion"><span class="icono">lock</span><input id="contrasena-acceso" name="contrasena" type="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required><button id="alternar-contrasena" class="boton-visibilidad" type="button" aria-label="Mostrar contraseña"><span class="icono">visibility</span></button></div></div>
-        <div class="opciones-sesion"><label class="recordar-sesion"><input type="checkbox" name="recordar" checked><span>Recordar sesión en este dispositivo</span></label><span class="duracion-sesion">Sesión activa 30d</span></div>
+        <div class="campo-sesion">
+          <label for="correo-acceso">Correo electrónico o nombre de usuario</label>
+          <div class="entrada-sesion"><span class="icono">mail</span>
+            <input id="correo-acceso" name="usuario" type="text" placeholder="ejemplo@explorador.mappal.org" autocomplete="username" required>
+          </div>
+        </div>
+        <div class="campo-sesion">
+          <div class="fila-etiqueta-contrasena">
+            <label for="contrasena-acceso">Contraseña</label>
+            <button id="boton-recuperacion" class="boton-enlace-sesion" type="button">¿Olvidaste tu contraseña?</button>
+          </div>
+          <div class="entrada-sesion"><span class="icono">lock</span><input id="contrasena-acceso" name="contrasena" type="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+            <button id="alternar-contrasena" class="boton-visibilidad" type="button" aria-label="Mostrar contraseña">
+              <span class="icono">visibility</span>
+            </button>
+          </div>
+        </div>
+        <div class="opciones-sesion">
+          <label class="recordar-sesion">
+            <input type="checkbox" name="recordar" checked><span>Recordar sesión en este dispositivo</span>
+          </label>
+          <span class="duracion-sesion">Sesión activa 30d</span>
+        </div>
         <button class="boton-acceso" type="submit"><span class="icono">login</span> Iniciar Sesión en MappAl</button>
         <p id="mensaje-sesion" class="mensaje-formulario mensaje-sesion" role="status" aria-live="polite"></p>
       </form>
-      <div class="separador-acceso"><span>Acceso rápido</span></div>
+      <div class="separador-acceso">
+        <span>Acceso rápido</span>
+      </div>
       <p class="aviso-acceso-rapido">Los proveedores externos estarán disponibles cuando se conecte el servicio de autenticación.</p>
-      <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="Registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a></div>
+      <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="Registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a>
+      </div>
     </section>
   </main>
 
