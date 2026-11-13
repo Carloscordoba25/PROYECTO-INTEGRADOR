@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alertas Comunitarias</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información sobre las alertas comunitarias de MapPal.">
+  <title>Alertas comunitarias | MapPal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../controller/app.js"></script>
 </head>
-<body>
-    
+<body class="pagina-comunidad" data-page="alertas">
+  <header class="barra-comunidad">
+    <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
+    <nav class="navegacion-comunidad" aria-label="Navegación principal">
+      <a href="index.html">Explorar lugares</a>
+      <a href="canalesEnVivo.html">Compartir lugar</a>
+      <a class="enlace-activo" href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
+      <a href="GuiaLocal.html">Guía local</a>
+      <a href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-administracion" href="administracion.html" hidden>Administración</a>
+    </nav>
+    <div class="acciones-comunidad">
+      <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
+      <button class="boton boton-secundario boton-cerrar-sesion" type="button" hidden>Cerrar sesión</button>
+    </div>
+  </header>
+  <main class="contenedor-pagina">
+    <section class="encabezado-pagina">
+      <p class="texto-mono texto-ambar"><span class="punto-ambar"></span> ALERTAS COMUNITARIAS</p>
+      <h1>Alertas y discusiones</h1>
+      <p>Esta sección estará disponible cuando el servicio de alertas se incorpore al API.</p>
+    </section>
+    <section class="estado-vacio" aria-label="Función aún no disponible">
+      <span class="icono icono-estado" aria-hidden="true">campaign</span>
+      <h2>Publicación de alertas aún no disponible</h2>
+      <p>El API conectado permite crear y consultar lugares, pero todavía no guarda alertas ni discusiones.</p>
+      <a class="boton boton-primario" href="index.html">Explorar lugares <span class="icono">arrow_forward</span></a>
+    </section>
+  </main>
+  <footer class="pie-comunidad">MapPal · Consulta lugares compartidos por la comunidad.</footer>
 </body>
 </html>

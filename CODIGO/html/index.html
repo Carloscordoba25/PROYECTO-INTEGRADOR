@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Descubre recomendaciones y alertas compartidas por viajeros y comunidades locales.">
+  <meta name="description" content="Explora lugares compartidos por viajeros y comunidades locales.">
   <title>Inicio | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../api/storage.js" defer></script>
-  <script src="../api/servicios.js" defer></script>
-  <script src="../controller/app.js" defer></script>
+  <script type="module" src="../controller/app.js"></script>
 </head>
 <body class="pagina-comunidad" data-page="inicio">
   <header class="barra-comunidad">
     <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
     <nav class="navegacion-comunidad" aria-label="Navegación principal">
-      <a class="enlace-activo" href="index.html">Explorar destinos</a>
-      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a class="enlace-activo" href="index.html">Explorar lugares</a>
+      <a href="canalesEnVivo.html">Compartir lugar</a>
       <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
       <a href="GuiaLocal.html">Guía local</a>
-      <a href="perfilViajero.html">Perfil del viajero</a>
+      <a href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-administracion" href="administracion.html" hidden>Administración</a>
     </nav>
     <div class="acciones-comunidad">
       <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
@@ -33,340 +31,22 @@
   <main>
     <section class="portada-inicio">
       <p class="texto-mono texto-verde"><span class="indicador-activo"></span> RED COMUNITARIA DE VIAJEROS</p>
-      <h1>La comunidad que comparte el mundo real.</h1>
-      <p>Encuentra recomendaciones honestas y alertas creadas por viajeros y residentes.</p>
+      <h1>Encuentra lugares recomendados por la comunidad.</h1>
+      <p>Explora y comparte lugares de interés con su dirección y ubicación geográfica.</p>
       <div class="acciones-portada">
-        <a class="boton boton-primario" href="canalesEnVivo.html">Explorar canales <span class="icono">arrow_forward</span></a>
-        <a class="boton boton-secundario" href="SeccionAlertasComunitarias.html">Ver alertas comunitarias</a>
+        <a class="boton boton-primario" href="canalesEnVivo.html">Compartir un lugar <span class="icono">arrow_forward</span></a>
+        <a class="boton boton-secundario" href="perfilViajero.html">Ver mis favoritos</a>
       </div>
     </section>
-    <section class="seccion-contenido" aria-labelledby="titulo-lugares">
+    <p id="mensaje-pagina" class="mensaje-formulario contenedor-pagina" role="status" aria-live="polite"></p>
+    <section class="seccion-contenido contenedor-pagina" aria-labelledby="titulo-lugares">
       <div class="encabezado-contenido">
-        <div><p class="texto-mono texto-verde">RECOMENDACIONES DE LA COMUNIDAD</p><h2 id="titulo-lugares">Lugares destacados</h2></div>
-        <a class="enlace-texto" href="canalesEnVivo.html">Ver canales <span class="icono">arrow_forward</span></a>
+        <div><p class="texto-mono texto-verde">LUGARES DE LA COMUNIDAD</p><h2 id="titulo-lugares">Lugares recomendados</h2></div>
+        <a class="enlace-texto" href="canalesEnVivo.html">Compartir un lugar <span class="icono">arrow_forward</span></a>
       </div>
       <div id="lugares-inicio" class="rejilla-publicaciones" aria-live="polite"></div>
     </section>
-    <section class="seccion-contenido seccion-discusion" aria-labelledby="titulo-discusiones">
-      <div class="encabezado-contenido">
-        <div><p class="texto-mono texto-ambar">CONVERSACIONES RECIENTES</p><h2 id="titulo-discusiones">Discusiones calientes</h2></div>
-        <a class="enlace-texto" href="SeccionAlertasComunitarias.html">Ir a alertas <span class="icono">arrow_forward</span></a>
-      </div>
-      <div id="discusiones-inicio" class="lista-publicaciones" aria-live="polite"></div>
-    </section>
   </main>
-  <footer class="pie-comunidad">MapPal · Recomendaciones y alertas construidas por la comunidad.</footer>
+  <footer class="pie-comunidad">MapPal · Lugares compartidos por viajeros y residentes.</footer>
 </body>
 </html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapPal</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-  <body class="pagina-registro">
-    <header>
-     <nav>
-        <div class="logo">
-          <img src="../IMG/ICONS/iconoMapPal.jpg" alt="" width="100px">
-          <span>MapPal</span>
-        </div>
-        <div class="navegar">
-          <a href="">Explorar Destinos</a>
-          <a href="">Canales en Vivo</a>
-          <a href="">Alertas Comunitarias</a>
-          <a href="">Comunidad</a>
-        </div>
-        <div class="usuario">
-          <div class="busqueda">
-            <input type="search" >
-          </div>
-          <div class="boton"><button type="submit">+ Compartir Tips</button></div>
-          <div class="perfil">
-            <div class="avatar"><img src="" alt=""></div>
-            <div class="infoPerfil">
-              <span>Karma</span>
-              <span>Inside</span>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <div class="presentacion">
-        <div class="badge"><span>RED DESCENTRALIZADA DE INTELIGENCIA TERRITORIAL</span></div>
-        <div class="slogan"><h1>La comunidad global que mapea el mundo real</h1><br><p>Recomendaciones honestas de locales y viajeros. Desde los mejores rincones ocultos <br> hasta advertencias de seguridad en tiempo real.</p></div>
-        <div class="busqueda">
-          <input type="search"><button type="submit">Descubrir</button>
-        </div>
-        <div class="filtrosRapidos">
-          <div class="categoria">Megaciudades</div>
-          <div class="categoria">Pueblos con encanto</div>
-          <div class="categoria">Destinos gratronomicos</div>
-          <div class="categoria">Nturaleza y parques</div>
-        </div>
-      </div>
-      <div class="estadisticas">
-          <div class="metrica">
-            <div class="icono">&#x1F464;</div>
-            <span>148,200+</span>
-            <p>viajeros y locales activos</p>
-          </div>
-          <div class="metrica"><p>Tips verificados</p></div>
-          <div class="metrica"><p>cartografias con canales comunitarios</p></div>
-      </div>
-    <section class="destinosYdiscusiones">
-      <div class="destinos">
-        <div class="encabezado">
-          <div class="informacion">
-            <span>Índice en Tiempo Real</span>
-            <h2>Lugares Destacados en Tendencia</h2>
-          </div>
-          <div class="filtro">
-            <button type="button">flitro</button>
-            <button type="button">vista</button>
-          </div>
-        </div>
-        <div class="tarjetas">
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="visual">
-              <img src="" alt="">
-              <span>#1 en puntos de Interes</span>
-              <span>Otoño/Primavera</span>
-           </div>
-            <div class="informacion">
-              <div class="descripcion">
-                <h3>TOKIO </h3>
-                <span>1.2k debates activos</span>
-                <span>98% seguro</span>
-                <span>japon</span>
-              </div>
-              <div class="posteos">
-                <span>#transporte</span>
-                <span>#ramen</span>
-                <span> ver Hub ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="discusiones">
-          <div class="infoDiscuciones">
-            <span>EN VIVIO</span>
-            <h3>Discusiones Calientes</h3>
-          </div>
-        <div class="tableros">
-          <div class="conversacion">
-            <div class="interacciones">
-              <button class="button"><</button>
-              <span>249</span>
-              <button class="button">></button>
-            </div>
-            <div class="tag">
-              <span>#lugares-a-evitar</span><span>hace dos horas</span>
-            </div>
-            <div class="tema">
-              <h4>🚨 Estafas comnunes alrededor de termino en<br>Roma y como esquivarlas</h4>
-            </div>
-            <div class="contenido">
-              <p>Cuidado con los supuestos asistentes en las máquinas de trenes que intentan "ayudarte" con las monedas...</p>
-            </div>
-            <div class="indicadores">
-                  <span>136 respuestas</span>
-                  <span>Tokio</span>
-            </div>
-          </div>
-          <div class="conversacion">
-            <div class="interacciones">
-              <button class="button"><</button>
-              <span>249</span>
-              <button class="button">></button>
-            </div>
-            <div class="tag">
-              <span>#lugares-a-evitar</span><span>hace dos horas</span>
-            </div>
-            <div class="tema">
-              <h4>🚨 Estafas comnunes alrededor de termino en<br>Roma y como esquivarlas</h4>
-            </div>
-            <div class="contenido">
-              <p>Cuidado con los supuestos asistentes en las máquinas de trenes que intentan "ayudarte" con las monedas...</p>
-            </div>
-            <div class="indicadores">
-                  <span>136 respuestas</span>
-                  <span>Tokio</span>
-            </div>
-          </div>
-          <div class="conversacion">
-            <div class="interacciones">
-              <button class="button"><</button>
-              <span>249</span>
-              <button class="button">></button>
-            </div>
-            <div class="tag">
-              <span>#lugares-a-evitar</span><span>hace dos horas</span>
-            </div>
-            <div class="tema">
-              <h4>🚨 Estafas comnunes alrededor de termino en<br>Roma y como esquivarlas</h4>
-            </div>
-            <div class="contenido">
-              <p>Cuidado con los supuestos asistentes en las máquinas de trenes que intentan "ayudarte" con las monedas...</p>
-            </div>
-            <div class="indicadores">
-                  <span>136 respuestas</span>
-                  <span>Tokio</span>
-            </div>
-          </div>
-          <div class="conversacion">
-            <div class="interacciones">
-              <button class="button"><</button>
-              <span>249</span>
-              <button class="button">></button>
-            </div>
-            <div class="tag">
-              <span>#lugares-a-evitar</span><span>hace dos horas</span>
-            </div>
-            <div class="tema">
-              <h4>🚨 Estafas comnunes alrededor de termino en<br>Roma y como esquivarlas</h4>
-            </div>
-            <div class="contenido">
-              <p>Cuidado con los supuestos asistentes en las máquinas de trenes que intentan "ayudarte" con las monedas...</p>
-            </div>
-            <div class="indicadores">
-                  <span>136 respuestas</span>
-                  <span>Tokio</span>
-            </div>
-          </div>
-          <div class="conversacion">
-            <div class="interacciones">
-              <button class="button"><</button>
-              <span>249</span>
-              <button class="button">></button>
-            </div>
-            <div class="tag">
-              <span>#lugares-a-evitar</span><span>hace dos horas</span>
-            </div>
-            <div class="tema">
-              <h4>🚨 Estafas comnunes alrededor de termino en<br>Roma y como esquivarlas</h4>
-            </div>
-            <div class="contenido">
-              <p>Cuidado con los supuestos asistentes en las máquinas de trenes que intentan "ayudarte" con las monedas...</p>
-            </div>
-            <div class="indicadores">
-                  <span>136 respuestas</span>
-                  <span>Tokio</span>
-            </div>
-          </div>
-        </div> 
-    </div>
-    </section>
-    </main>
-  
-
-    
-  
-  </body>
-</html>
-

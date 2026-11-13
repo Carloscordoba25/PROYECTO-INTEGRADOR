@@ -1,38 +1,38 @@
+import { servicios } from "../api/servicios.js";
 
-import { servicios } from '../api/servicios.js';
-
-
-const botonesRolSesion = document.querySelectorAll(".boton-rol-sesion");
+const botonesRol = document.querySelectorAll(".boton-rol-sesion");
 const modoAcceso = document.getElementById("modo-acceso");
-const formularioSesion = document.getElementById("formulario-sesion");
-const mensajeSesion = document.getElementById("mensaje-sesion");
+const formulario = document.getElementById("formulario-sesion");
+const mensaje = document.getElementById("mensaje-sesion");
 const botonRecuperacion = document.getElementById("boton-recuperacion");
 const botonVisibilidad = document.getElementById("alternar-contrasena");
-const contrasenaAcceso = document.getElementById("contrasena-acceso");
+const contrasena = document.getElementById("contrasena-acceso");
 const nombresRoles = {
-  explorador: "Explorador",
+  turista: "Turista",
   prestador: "Prestador Local",
   administrador: "Administrador",
-
-  guia: "Guía Local",
-
 };
 
-botonesRolSesion.forEach((boton) => {
+function mostrarMensaje(texto, esError = false) {
+  mensaje.textContent = texto;
+  mensaje.classList.toggle("mensaje-error", esError);
+  mensaje.classList.toggle("mensaje-exito", !esError);
+}
+
+botonesRol.forEach((boton) => {
   boton.addEventListener("click", () => {
-    botonesRolSesion.forEach((otroBoton) => {
+    botonesRol.forEach((otroBoton) => {
       const seleccionado = otroBoton === boton;
       otroBoton.classList.toggle("rol-seleccionado", seleccionado);
       otroBoton.setAttribute("aria-pressed", String(seleccionado));
     });
-
     modoAcceso.textContent = `Modo ${nombresRoles[boton.dataset.rol]}`;
   });
 });
 
 botonVisibilidad.addEventListener("click", () => {
-  const mostrarContrasena = contrasenaAcceso.type === "password";
-  contrasenaAcceso.type = mostrarContrasena ? "text" : "password";
+  const mostrarContrasena = contrasena.type === "password";
+  contrasena.type = mostrarContrasena ? "text" : "password";
   botonVisibilidad.setAttribute(
     "aria-label",
     mostrarContrasena ? "Ocultar contraseña" : "Mostrar contraseña"
@@ -43,45 +43,43 @@ botonVisibilidad.addEventListener("click", () => {
 });
 
 botonRecuperacion.addEventListener("click", () => {
-  mensajeSesion.textContent =
-    "La recuperación estará disponible cuando se conecte el servicio de correo.";
+  mostrarMensaje("La recuperación de contraseña aún no está disponible.");
   document.getElementById("correo-acceso").focus();
 });
 
-formularioSesion.addEventListener("submit", async (evento) => {
+formulario.addEventListener("submit", async (evento) => {
   evento.preventDefault();
+  if (!formulario.reportValidity()) return;
 
-  if (!formularioSesion.reportValidity()) {
-    return;
+  const correo = document.getElementById("correo-acceso").value.trim();
+  const botonEnviar = formulario.querySelector('[type="submit"]');
+  botonEnviar.disabled = true;
+
+  try {
+    const resultado = await servicios.autenticarUsuario(correo, contrasena.value);
+    if (!resultado.ok) {
+      mostrarMensaje(resultado.error, true);
+      return;
+    }
+
+    const rolSeleccionado = document.querySelector(
+      ".boton-rol-sesion[aria-pressed='true']"
+    ).dataset.rol;
+    if (resultado.data.rol !== rolSeleccionado) {
+      servicios.cerrarSesion();
+      mostrarMensaje(
+        `Esta cuenta está registrada como ${nombresRoles[resultado.data.rol] || resultado.data.rol}. Selecciona ese tipo de cuenta para continuar.`,
+        true
+      );
+      return;
+    }
+
+    const destinosPorRol = { administrador: "administracion.html" };
+    window.location.assign(destinosPorRol[resultado.data.rol] || "index.html");
+  } catch (error) {
+    console.error("No se pudo iniciar sesión:", error);
+    mostrarMensaje("Ocurrió un error al iniciar sesión. Inténtalo de nuevo.", true);
+  } finally {
+    botonEnviar.disabled = false;
   }
-
-  const usuario = document.getElementById("correo-acceso").value.trim();
-  const nombre = usuario.includes("@") ? usuario.slice(0, usuario.indexOf("@")) : usuario;
-  const sesion = {
-    id: usuario.toLocaleLowerCase(),
-    nombre: nombre || usuario,
-    rol: document.querySelector(".boton-rol-sesion[aria-pressed='true']").dataset.rol,
-  };
-  sessionStorage.setItem("mappal-sesion-demo", JSON.stringify(sesion));
-  const destinosPorRol = {
-    administrador: "administracion.html",
-    guia: "GuiaLocal.html",
-  };
-  window.location.href = destinosPorRol[sesion.rol] || "index.html";
-
-  const correo = document.getElementById("correo-acceso").value;
-  const contrasena = document.getElementById("contrasena-acceso").value;
-
-  const resultado = await servicios.autenticarUsuario(correo, contrasena);
-
-  if (resultado.ok) {
-    mensajeSesion.textContent = "Sesión iniciada correctamente";
-    mensajeSesion.style.color = "green";
-    mensajeSesion.style.display = "block";
-  } else {
-    mensajeSesion.textContent = resultado.error;
-    mensajeSesion.style.color = "red";
-    mensajeSesion.style.display = "block";
-  }
-
 });

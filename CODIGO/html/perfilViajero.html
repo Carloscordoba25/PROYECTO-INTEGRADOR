@@ -1,87 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta y edita tu perfil de viajero en MapPal.">
-  <title>Perfil del viajero | MapPal</title>
+  <meta name="description" content="Consulta tu cuenta y los lugares que guardaste en MapPal.">
+  <title>Mi perfil | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../api/storage.js" defer></script>
-  <script src="../api/servicios.js" defer></script>
-  <script src="../controller/app.js" defer></script>
+  <script type="module" src="../controller/app.js"></script>
 </head>
 <body class="pagina-comunidad" data-page="perfil">
   <header class="barra-comunidad">
     <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
     <nav class="navegacion-comunidad" aria-label="Navegación principal">
-      <a href="index.html">Explorar destinos</a>
-      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="index.html">Explorar lugares</a>
+      <a href="canalesEnVivo.html">Compartir lugar</a>
       <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
       <a href="GuiaLocal.html">Guía local</a>
-      <a class="enlace-activo" href="perfilViajero.html">Perfil del viajero</a>
+      <a class="enlace-activo" href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-administracion" href="administracion.html" hidden>Administración</a>
     </nav>
     <div class="acciones-comunidad">
       <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
-      <a class="boton boton-primario enlace-crear" href="#formulario-perfil">Editar perfil</a>
       <button class="boton boton-secundario boton-cerrar-sesion" type="button" hidden>Cerrar sesión</button>
     </div>
   </header>
   <main class="contenedor-pagina">
     <section class="encabezado-pagina">
-      <p class="texto-mono texto-verde">TU ESPACIO EN LA COMUNIDAD</p>
-      <h1>Perfil del viajero</h1>
-      <p>Administra tu información y comparte recomendaciones con otros viajeros.</p>
+      <p class="texto-mono texto-verde">TU ESPACIO EN MAPPAL</p>
+      <h1>Mi perfil</h1>
+      <p>Consulta la cuenta con la que iniciaste sesión y tus lugares favoritos.</p>
     </section>
-    <section class="panel-perfil">
-      <div class="avatar-perfil" data-avatar-perfil aria-label="Foto de perfil predeterminada"><span class="icono">person</span></div>
-      <div class="resumen-perfil"><p class="texto-mono texto-verde">VIAJERO MAPPAL</p><h2 data-nombre-perfil>Tu perfil</h2><p data-biografia-perfil>Aún no has agregado una descripción.</p></div>
-      <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión para editar</a>
-    </section>
-    <section class="panel-publicar" aria-labelledby="titulo-editar-perfil">
-      <div class="encabezado-panel"><div><p class="texto-mono texto-verde">INFORMACIÓN PERSONAL</p><h2 id="titulo-editar-perfil">Editar perfil</h2></div><span class="icono icono-panel">manage_accounts</span></div>
-      <form id="formulario-perfil" class="formulario-comunidad" data-requiere-sesion>
-        <div class="rejilla-formulario">
-          <label class="campo-comunidad">Nombre visible<input name="nombre" maxlength="60" placeholder="Tu nombre" required></label>
-          <label class="campo-comunidad campo-completo">Sobre mí<textarea name="biografia" rows="3" maxlength="240" placeholder="Cuéntale a la comunidad qué tipo de viajero eres"></textarea></label>
-          <label class="campo-comunidad campo-completo">Foto de perfil<input name="foto" type="file" accept="image/png,image/jpeg,image/webp"><span class="ayuda-campo">Opcional · PNG, JPG o WebP · máximo 500 KB. Sin foto se mostrará el icono de persona.</span></label>
-        </div>
-        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Guardar perfil <span class="icono">save</span></button></div>
-      </form>
-    </section>
-    <section class="panel-publicar" aria-labelledby="titulo-publicar-perfil">
-      <div class="encabezado-panel"><div><p class="texto-mono texto-verde">COMPARTE TU EXPERIENCIA</p><h2 id="titulo-publicar-perfil">Recomendar un lugar desde mi perfil</h2></div><span class="icono icono-panel">add_location_alt</span></div>
-      <form id="formulario-lugar-perfil" class="formulario-comunidad" data-requiere-sesion data-tipo="lugar">
-        <div class="rejilla-formulario">
-          <label class="campo-comunidad">Nombre del lugar<input name="nombre" maxlength="80" placeholder="Ej. Café del barrio" required></label>
-          <label class="campo-comunidad">Ciudad o zona<input name="ubicacion" maxlength="80" placeholder="Ej. Medellín, Laureles" required></label>
-          <label class="campo-comunidad campo-completo">¿Qué recomiendas de este lugar?<textarea name="descripcion" rows="3" maxlength="500" placeholder="Comparte tu experiencia para ayudar a otros viajeros..." required></textarea></label>
-        </div>
-        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Publicar recomendación <span class="icono">send</span></button></div>
-      </form>
+    <p id="mensaje-pagina" class="mensaje-formulario" role="status" aria-live="polite"></p>
+    <section class="panel-perfil" aria-label="Datos de la cuenta">
+      <div class="avatar-perfil" data-avatar-perfil aria-hidden="true"><span class="icono">person</span></div>
+      <div class="resumen-perfil">
+        <p class="texto-mono texto-verde">CUENTA MAPPAL</p>
+        <h2 data-nombre-perfil>Inicia sesión para ver tu perfil</h2>
+        <p data-correo-perfil></p>
+      </div>
+      <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
     </section>
     <section class="seccion-contenido" aria-labelledby="titulo-mis-lugares">
-      <div class="encabezado-contenido"><div><p class="texto-mono texto-verde">TUS CONTRIBUCIONES</p><h2 id="titulo-mis-lugares">Mis lugares recomendados</h2></div></div>
-      <div id="lugares-perfil" class="rejilla-publicaciones" aria-live="polite"></div>
+      <div class="encabezado-contenido">
+        <div><p class="texto-mono texto-verde">TUS GUARDADOS</p><h2 id="titulo-mis-lugares">Lugares favoritos</h2></div>
+        <a class="enlace-texto" href="index.html">Explorar lugares <span class="icono">arrow_forward</span></a>
+      </div>
+      <div id="lugares-favoritos" class="rejilla-publicaciones" aria-live="polite"></div>
     </section>
   </main>
-  <footer class="pie-comunidad">MapPal · Tu experiencia ayuda a otros viajeros.</footer>
+  <footer class="pie-comunidad">MapPal · Tus favoritos se guardan en este navegador.</footer>
 </body>
 </html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil del Viajero</title>
-     <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-   
-</body>
-</html>
-

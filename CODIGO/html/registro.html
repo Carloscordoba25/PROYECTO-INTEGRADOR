@@ -3,217 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Crea tu identidad comunitaria en MappAl.">
-  <title>Crear cuenta | MappAl</title>
+  <meta name="description" content="Crea tu cuenta de MapPal.">
+  <title>Crear cuenta | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="controlador/registro.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../controller/registro.js"></script>
 </head>
 <body class="pagina-registro">
   <main class="contenedor-registro">
-    <!-- Módulo: encabezado e información del nodo -->
-    <div class="encabezado-registro">
+    <header class="encabezado-registro">
       <div class="marca-registro">
         <div class="icono-marca"><span class="icono">explore</span></div>
         <div>
-          <div class="metadatos-registro"><span class="etiqueta-protocolo">Protocolo V2.4</span><span class="identificador-sistema">ID: MAP-SYS-994</span></div>
-          <h1>Alta de Identidad Comunitaria</h1>
+          <div class="metadatos-registro"><span class="etiqueta-protocolo">MapPal</span><span class="identificador-sistema">RED COMUNITARIA</span></div>
+          <h1>Crear cuenta</h1>
         </div>
       </div>
-      <div class="estado-nodo"><span class="indicador-activo"></span><span>Nodo de Verificación: <strong>Activo (LatAm-01)</strong></span></div>
-    </div>
+      <div class="estado-nodo"><span class="indicador-activo"></span><span>Tu cuenta se guardará en este dispositivo.</span></div>
+    </header>
 
     <form id="formulario-registro" class="formulario-registro">
-      <!-- Módulo: selección del tipo de cuenta -->
       <section class="selector-perfil" aria-label="Selecciona tu tipo de cuenta">
         <button id="boton-turista" class="opcion-perfil perfil-seleccionado" type="button" data-rol="turista" aria-pressed="true">
           <span class="icono-perfil"><span class="icono">person_pin_circle</span></span>
-          <span class="texto-opcion-perfil"><span class="fila-opcion-perfil"><span class="titulo-opcion">Turista / Viajero</span><span id="insignia-turista" class="insignia-activa">Activo</span></span><span class="descripcion-opcion">Explora la red comunitaria, califica rutas seguras, descubre sitios verificados y aporta inteligencia colectiva global.</span></span>
+          <span class="texto-opcion-perfil">
+            <span class="fila-opcion-perfil"><span class="titulo-opcion">Turista / Viajero</span><span id="insignia-turista" class="insignia-activa">Activo</span></span>
+            <span class="descripcion-opcion">Explora y guarda tus lugares favoritos.</span>
+          </span>
         </button>
         <button id="boton-prestador" class="opcion-perfil" type="button" data-rol="prestador" aria-pressed="false">
           <span class="icono-perfil"><span class="icono">store</span></span>
-          <span class="texto-opcion-perfil"><span class="fila-opcion-perfil"><span class="titulo-opcion">Prestador Local</span><span id="insignia-prestador" class="insignia-activa" hidden>Activo</span></span><span class="descripcion-opcion">Posiciona tu comercio, hotel, restaurante, puesto o servicio de guía y transporte bajo estándares de transparencia comunitaria.</span></span>
+          <span class="texto-opcion-perfil">
+            <span class="fila-opcion-perfil"><span class="titulo-opcion">Prestador Local</span><span id="insignia-prestador" class="insignia-activa" hidden>Activo</span></span>
+            <span class="descripcion-opcion">Comparte lugares de interés con la comunidad.</span>
+          </span>
         </button>
       </section>
 
-      <!-- Módulo: credenciales y acceso -->
       <section class="seccion-registro" aria-labelledby="titulo-credenciales">
-        <div class="encabezado-seccion"><div class="titulo-seccion"><span class="etiqueta-fase">Fase 01</span><h2 id="titulo-credenciales">Credenciales y Acceso Base</h2></div><span class="nota-seccion">Cifrado de extremo a extremo</span></div>
-        <div class="rejilla-campos">
-          <div class="campo campo-ancho"><label for="correo-registro"><span class="icono">mail</span> Correo electrónico oficial *</label><input id="correo-registro" name="correo" type="email" placeholder="usuario@dominio.com" autocomplete="email" required></div>
-          <div class="campo"><label for="contrasena-registro"><span class="icono">lock</span> Clave de acceso *</label><input id="contrasena-registro" name="contrasena" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required></div>
-          <div class="campo"><label for="confirmacion-contrasena"><span class="icono">check_circle</span> Confirmación *</label><input id="confirmacion-contrasena" name="confirmacion" type="password" placeholder="Repite tu clave" autocomplete="new-password" minlength="8" required></div>
-        </div>
-      </section>
-
-      <!-- Módulo: perfil de viajero -->
-      <section id="seccion-turista" class="seccion-registro" aria-labelledby="titulo-viajero">
-        <div class="encabezado-seccion"><div class="titulo-seccion"><span class="etiqueta-fase">Fase 02</span><h2 id="titulo-viajero">Perfil de Viajero y Exploración</h2></div><span class="sello-global"><span class="icono">public</span> Nodo Global</span></div>
-        <div class="rejilla-campos">
-          <div class="campo"><label for="nombre-viajero"><span class="icono">badge</span> Nombre y apellido *</label><input id="nombre-viajero" name="nombre" type="text" placeholder="Ej: Sofía Valenzuela" autocomplete="name" required></div>
-          <div class="campo"><label for="identificador-viajero"><span class="icono">alternate_email</span> Identificador (etiqueta) *</label><div class="entrada-con-prefijo"><span aria-hidden="true">@</span><input id="identificador-viajero" name="identificador" type="text" placeholder="sofia_traveler" autocomplete="username" required></div></div>
-          <div class="campo"><label for="origen-viajero"><span class="icono">flight_takeoff</span> País y ciudad de origen *</label><input id="origen-viajero" name="origen" type="text" placeholder="Ej: Bogotá, Colombia" autocomplete="country-name" required></div>
-          <div class="campo"><label for="idiomas-viajero"><span class="icono">translate</span> Idiomas hablados</label><input id="idiomas-viajero" name="idiomas" type="text" placeholder="Ej: Español nativo, Inglés C1, Portugués"></div>
-          <fieldset class="campo campo-ancho campo-preferencias">
-            <legend>Preferencias de viaje y vectores de interés (selecciona las prioritarias)</legend>
-            <div class="opciones-interes">
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="gastronomia" checked><span><span class="icono">restaurant</span> Gastronomía local</span></label>
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="accesibilidad" checked><span><span class="icono">accessible</span> Accesibilidad e inclusión</span></label>
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="aventura"><span><span class="icono">hiking</span> Aventura y trekking</span></label>
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="cultura"><span><span class="icono">museum</span> Patrimonio y cultura</span></label>
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="rutas-nocturnas"><span><span class="icono">nightlife</span> Rutas nocturnas seguras</span></label>
-              <label class="opcion-interes"><input name="intereses" type="checkbox" value="sensorial"><span><span class="icono">psychology</span> Entornos sensoriales calmos (TEA)</span></label>
-            </div>
-          </fieldset>
-        </div>
-      </section>
-
-      <!-- Módulo: ficha operativa de prestador local -->
-      <section id="seccion-prestador" class="seccion-registro seccion-oculta" aria-labelledby="titulo-prestador" hidden>
         <div class="encabezado-seccion">
-            <div class="titulo-seccion">
-                <span class="etiqueta-fase etiqueta-prestador">Fase 02</span>
-                <h2 id="titulo-prestador">Ficha Operativa de Prestador Local</h2>
-            </div>
-            <span class="sello-verificacion">
-                <span class="icono">verified</span> Proceso de verificación
-            </span>
+          <div class="titulo-seccion"><span class="etiqueta-fase">CUENTA</span><h2 id="titulo-credenciales">Tus datos de acceso</h2></div>
+          <span class="nota-seccion">Completa todos los campos</span>
         </div>
         <div class="rejilla-campos">
           <div class="campo campo-ancho">
-            <label for="actividad-prestador">
-                <span class="icono">category</span> Tipo de actividad o servicio *</label>
-                <select id="actividad-prestador" name="actividad" required disabled>
-                    <option value="gastronomia">Gastronomía / Restaurante / Puesto típico</option>
-                    <option value="alojamiento">Alojamiento / Hotel / Hostal comunitario</option>
-                    <option value="comercio">Local comercial / Artesanías</option>
-                    <option value="guia-pie">Guía de turismo a pie / Experiencias barriales</option>
-                    <option value="guia-vehiculo">Guía conductor con vehículo (Auto / Moto / Minivan)</option>
-                </select>
-            </div>
-          <div class="campo">
-            <label for="nombre-comercial">
-                <span class="icono">storefront</span> Nombre comercial o razón social *
-            </label>
-            <input id="nombre-comercial" name="nombre-comercial" type="text" placeholder="Ej: Café Solar y Sabores Andinos" required disabled>
+            <label for="nombre-registro"><span class="icono">badge</span> Nombre visible</label>
+            <input id="nombre-registro" name="nombre" type="text" maxlength="80" autocomplete="name" required>
+          </div>
+          <div class="campo campo-ancho">
+            <label for="correo-registro"><span class="icono">mail</span> Correo electrónico</label>
+            <input id="correo-registro" name="correo" type="email" placeholder="usuario@dominio.com" autocomplete="email" required>
           </div>
           <div class="campo">
-            <label for="telefono-comercial"><span class="icono">call</span> Teléfono comercial / WhatsApp *</label>
-            <input id="telefono-comercial" name="telefono-comercial" type="tel" placeholder="+56 9 8765 4321" autocomplete="tel" required disabled>
+            <label for="contrasena-registro"><span class="icono">lock</span> Contraseña</label>
+            <input id="contrasena-registro" name="contrasena" type="password" minlength="8" autocomplete="new-password" required>
           </div>
-          <div class="campo campo-ancho">
-            <label for="direccion-prestador">
-                <span class="icono">pin_drop</span> Dirección y geolocalización exacta *</label>
-                <input id="direccion-prestador" name="direccion" type="text" placeholder="Calle, número, ciudad y país" autocomplete="street-address" required disabled>
-          </div>
-          <div class="campo campo-ancho">
-            <label for="documento-prestador">
-                <span class="icono">upload_file</span> Documento de verificación (opcional)</label>
-                <input id="documento-prestador" name="documento" type="file" accept=".pdf,.jpg,.jpeg,.png" disabled>
-                <small>Formatos PDF, JPG o PNG. Tamaño máximo recomendado: 15 MB.</small>
+          <div class="campo">
+            <label for="confirmacion-contrasena"><span class="icono">check_circle</span> Confirmar contraseña</label>
+            <input id="confirmacion-contrasena" name="confirmacion" type="password" minlength="8" autocomplete="new-password" required>
           </div>
         </div>
       </section>
 
-      <!-- Módulo: compromiso de accesibilidad e inclusión -->
-      <section class="seccion-registro" aria-labelledby="titulo-accesibilidad">
-        <div class="encabezado-seccion">
-          <div class="titulo-seccion">
-            <span class="etiqueta-fase">Fase 03</span>
-            <h2 id="titulo-accesibilidad">Compromiso de Accesibilidad e Inclusión Universal</h2>
-          </div>
-          <span id="estado-accesibilidad" class="sello-global">
-            <span class="icono">handshake</span>
-            <span id="texto-accesibilidad">Opcional para Turistas / Recomendado</span>
-         </span>
-       </div>
-        <p class="texto-intro-seccion">MappAl audita y visibiliza la infraestructura accesible real. Marca el equipamiento certificado o validado que tu espacio o expedición garantiza a la comunidad:</p>
-        <div class="rejilla-accesibilidad">
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="rampa">
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad">
-                <span class="icono">accessible</span> Rampa / Paso Nivel Cero
-              </span>
-              <span class="descripcion-accesibilidad">Ingreso continuo sin gradas, rampas estándar (&lt;8% pendiente) o ascensor en funcionamiento.</span>
-            </span>
-          </label>
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="braille">
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad"><span class="icono">menu_book</span> Menú Braille / QR Sonoro</span>
-              <span class="descripcion-accesibilidad">Cartas táctiles transcritas o código QR verificado para lectores de pantalla.</span>
-            </span>
-          </label>
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="senas">
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad"><span class="icono">sign_language</span> Lengua de Señas (LSM/LSE)</span>
-              <span class="descripcion-accesibilidad">Atención básica en señas locales o soporte de videoguía gestual.</span>
-            </span>
-          </label>
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="sensorial">
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad"><span class="icono">psychology_alt</span> Espacio Sensorial Amigable</span>
-              <span class="descripcion-accesibilidad">Zonas de bajo estímulo sonoro, luces cálidas indirectas y horarios de baja afluencia adaptados.</span>
-            </span>
-          </label>
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="perros-guia" checked>
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad"><span class="icono">pets</span> Perros Guía Bienvenidos</span>
-              <span class="descripcion-accesibilidad">Admisión de perros guía y animales de asistencia según las normativas locales.</span>
-            </span>
-          </label>
-          <label class="opcion-accesibilidad">
-            <input name="accesibilidad" type="checkbox" value="asistencia">
-            <span class="contenido-accesibilidad">
-              <span class="titulo-accesibilidad"><span class="icono">accessible_forward</span> Acompañamiento Físico</span>
-              <span class="descripcion-accesibilidad">Asistencia personalizada para personas con movilidad reducida y traslados.</span>
-            </span>
-          </label>
-        </div>
-      </section>
-
-      <!-- Módulo: consentimiento y normas comunitarias -->
-      <section class="seccion-registro seccion-consentimiento" aria-labelledby="titulo-consentimiento">
-        <div class="encabezado-seccion">
-          <div class="titulo-seccion">
-            <span class="etiqueta-fase">Fase 04</span>
-            <h2 id="titulo-consentimiento">Consentimiento Comunitario</h2>
-          </div>
-        </div>
-        <div class="lista-consentimientos">
-          <label class="opcion-consentimiento">
-            <input name="acepta-conducta" type="checkbox" required>
-            <span>Acepto el <strong>Código de Conducta y Normas Comunitarias de MappAl</strong>. Me comprometo a compartir datos verídicos, alertas imparciales y respetar las verificaciones colectivas.</span>
-          </label>
-          <label class="opcion-consentimiento">
-            <input name="acepta-privacidad" type="checkbox" required>
-            <span>Acepto la <strong>Política de Datos Abiertos y Privacidad Cifrada</strong>. Entiendo que los marcadores geográficos y reportes aportados forman parte del bien público digital de libre acceso para peatones y viajeros.</span>
-          </label>
-        </div>
-      </section>
-
-      <!-- Módulo: creación de cuenta y acceso existente -->
       <div class="acciones-registro">
         <button class="boton-crear-cuenta" type="submit">
-          <span class="icono">hub</span>
-          <span>Crear Cuenta y Unirse a la Red</span>
+          <span class="icono">person_add</span>
+          <span>Crear cuenta</span>
         </button>
-        <p class="enlace-inicio-sesion">¿Ya tienes una cuenta registrada? <a href="html/InicioSesion.html">Inicia sesión <span class="icono">arrow_forward</span></a>
-        </p>
         <p id="mensaje-registro" class="mensaje-formulario" role="status" aria-live="polite"></p>
+        <p class="enlace-inicio-sesion">¿Ya tienes una cuenta? <a href="InicioSesion.html">Inicia sesión <span class="icono">arrow_forward</span></a></p>
       </div>
     </form>
 
-    <!-- Módulo: estado y pie de red -->
     <footer class="pie-registro">
-      <span><span class="indicador-activo"></span> Nivel de confianza de la red: 99.4% precisión geoespacial</span>
-      <span>LATAM // GLB-NET <span class="separador-pie">·</span> Encriptación SHA-256</span>
+      <a href="index.html">Volver a MapPal</a>
+      <span>Tu comunidad empieza aquí.</span>
     </footer>
   </main>
 </body>

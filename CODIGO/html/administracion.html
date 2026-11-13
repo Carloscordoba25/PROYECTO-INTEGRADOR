@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Panel de moderación de publicaciones de MapPal.">
+  <meta name="description" content="Administra los lugares compartidos en MapPal.">
   <title>Administración | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../api/storage.js" defer></script>
-  <script src="../api/servicios.js" defer></script>
-  <script src="../controller/app.js" defer></script>
+  <script type="module" src="../controller/app.js"></script>
 </head>
 <body class="pagina-comunidad" data-page="administracion">
   <header class="barra-comunidad">
     <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
     <nav class="navegacion-comunidad" aria-label="Navegación principal">
-      <a href="index.html">Explorar destinos</a>
-      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="index.html">Explorar lugares</a>
+      <a href="canalesEnVivo.html">Compartir lugar</a>
       <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
       <a href="GuiaLocal.html">Guía local</a>
-      <a class="enlace-activo enlace-administracion" href="administracion.html">Moderación</a>
+      <a href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-activo enlace-administracion" href="administracion.html" hidden>Administración</a>
     </nav>
     <div class="acciones-comunidad">
       <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
@@ -31,21 +30,20 @@
   <main class="contenedor-pagina">
     <section class="encabezado-pagina">
       <p class="texto-mono texto-ambar"><span class="punto-ambar"></span> HERRAMIENTAS DE MODERACIÓN</p>
-      <h1>Administrar publicaciones</h1>
-      <p>Revisa, edita o elimina recomendaciones, alertas, servicios y rutas compartidas por la comunidad.</p>
+      <h1>Administrar lugares</h1>
+      <p>Revisa y elimina lugares compartidos. Esta función está disponible para cuentas con rol administrador.</p>
     </section>
-    <section class="resumen-moderacion" aria-label="Resumen de publicaciones">
-      <div><span class="icono">location_on</span><p>Recomendaciones</p><strong data-total-lugares>0</strong></div>
-      <div><span class="icono">campaign</span><p>Alertas y discusiones</p><strong data-total-alertas>0</strong></div>
-      <div><span class="icono">workspace_premium</span><p>Servicios especializados</p><strong data-total-servicios-admin>0</strong></div>
-      <div><span class="icono">route</span><p>Rutas</p><strong data-total-rutas-admin>0</strong></div>
+    <section class="resumen-moderacion" aria-label="Resumen de lugares">
+      <div><span class="icono">location_on</span><p>Lugares publicados</p><strong data-total-lugares>0</strong></div>
     </section>
     <section class="seccion-contenido" aria-labelledby="titulo-publicaciones-admin">
-      <div class="encabezado-contenido"><div><p class="texto-mono texto-verde">CONTENIDO DE LA COMUNIDAD</p><h2 id="titulo-publicaciones-admin">Todas las publicaciones</h2></div></div>
+      <div class="encabezado-contenido">
+        <div><p class="texto-mono texto-verde">CONTENIDO DE LA COMUNIDAD</p><h2 id="titulo-publicaciones-admin">Lugares compartidos</h2></div>
+      </div>
       <div id="admin-publicaciones" class="lista-publicaciones" aria-live="polite"></div>
       <p id="mensaje-moderacion" class="mensaje-formulario" role="status" aria-live="polite"></p>
     </section>
   </main>
-  <footer class="pie-comunidad">MapPal · Las acciones de moderación se guardan en este navegador.</footer>
+  <footer class="pie-comunidad">MapPal · La moderación solo elimina lugares guardados en este navegador.</footer>
 </body>
 </html>
