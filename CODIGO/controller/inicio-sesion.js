@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+import { servicios } from '../api/servicios.js';
+
+
+>>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 const botonesRolSesion = document.querySelectorAll(".boton-rol-sesion");
 =======
 import { servicios } from "../api/servicios.js";
@@ -15,7 +22,9 @@ const nombresRoles = {
   turista: "Turista",
   prestador: "Prestador Local",
   administrador: "Administrador",
+
   guia: "Guía Local",
+
 };
 
 function mostrarMensaje(texto, esError = false) {
@@ -106,6 +115,25 @@ formulario.addEventListener("submit", async (evento) => {
     guia: "GuiaLocal.html",
   };
   window.location.href = destinosPorRol[sesion.rol] || "index.html";
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+
+  const correo = document.getElementById("correo-acceso").value;
+  const contrasena = document.getElementById("contrasena-acceso").value;
+
+  const resultado = await servicios.autenticarUsuario(correo, contrasena);
+
+  if (resultado.ok) {
+    mensajeSesion.textContent = "Sesión iniciada correctamente";
+    mensajeSesion.style.color = "green";
+    mensajeSesion.style.display = "block";
+  } else {
+    mensajeSesion.textContent = resultado.error;
+    mensajeSesion.style.color = "red";
+    mensajeSesion.style.display = "block";
+  }
+
+>>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 });

@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+import { servicios } from '../api/servicios.js';
+
+
+>>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 const botonTurista = document.getElementById("boton-turista");
 const botonPrestador = document.getElementById("boton-prestador");
 const seccionTurista = document.getElementById("seccion-turista");
@@ -69,13 +76,20 @@ botonPrestador.addEventListener("click", () => seleccionarPerfil("prestador"));
 contrasenaRegistro.addEventListener("input", validarContrasenas);
 confirmacionContrasena.addEventListener("input", validarContrasenas);
 
+
 formularioRegistro.addEventListener("submit", (evento) => {
+<<<<<<< HEAD
 =======
 contrasena.addEventListener("input", validarContrasenas);
 confirmacion.addEventListener("input", validarContrasenas);
 
 formulario.addEventListener("submit", async (evento) => {
 >>>>>>> Stashed changes
+=======
+
+formularioRegistro.addEventListener("submit", async (evento) => {
+
+>>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
   evento.preventDefault();
   validarContrasenas();
   if (!formulario.reportValidity()) return;
@@ -109,6 +123,32 @@ formulario.addEventListener("submit", async (evento) => {
   }
 <<<<<<< Updated upstream
 
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+
+  const rolSeleccionado = document.querySelector('.perfil-seleccionado')?.dataset.rol || 'turista';
+  const nombre = document.getElementById('nombre-viajero')?.value || '';
+  const correo = document.getElementById('correo-registro').value;
+  const contrasena = document.getElementById('contrasena-registro').value;
+
+  const resultado = await servicios.registrarUsuario({
+    nombre,
+    correo,
+    contrasena,
+    rol: rolSeleccionado === 'prestador' ? 'prestador' : 'turista',
+  });
+
+  if (resultado.ok) {
+    mensajeRegistro.textContent = 'Cuenta creada exitosamente';
+    mensajeRegistro.style.color = 'green';
+    mensajeRegistro.style.display = 'block';
+  } else {
+    mensajeRegistro.textContent = resultado.error;
+    mensajeRegistro.style.color = 'red';
+    mensajeRegistro.style.display = 'block';
+  }
+
+>>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 });
