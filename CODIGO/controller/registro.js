@@ -50,6 +50,4 @@ formularioRegistro.addEventListener("submit", (evento) => {
     return;
   }
 
-  mensajeRegistro.textContent =
-    "Formulario validado. Para crear la cuenta, conecta este formulario con el servicio de registro.";
 });

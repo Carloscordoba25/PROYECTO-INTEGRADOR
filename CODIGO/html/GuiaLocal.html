@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce guías locales, sus servicios especializados y rutas accesibles.">
+  <title>Guía local | MapPal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../api/storage.js" defer></script>
+  <script src="../api/servicios.js" defer></script>
+  <script src="../controller/app.js" defer></script>
+</head>
+<body class="pagina-comunidad" data-page="guia">
+  <header class="barra-comunidad">
+    <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
+    <nav class="navegacion-comunidad" aria-label="Navegación principal">
+      <a href="index.html">Explorar destinos</a>
+      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
+      <a class="enlace-activo" href="GuiaLocal.html">Guía local</a>
+      <a href="perfilViajero.html">Perfil del viajero</a>
+    </nav>
+    <div class="acciones-comunidad">
+      <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
+      <a class="boton boton-primario enlace-crear" href="#formulario-servicio">＋ Crear servicio</a>
+      <button class="boton boton-secundario boton-cerrar-sesion" type="button" hidden>Cerrar sesión</button>
+    </div>
+  </header>
+  <main class="contenedor-pagina">
+    <section class="panel-guia" aria-labelledby="nombre-guia">
+      <div class="resumen-guia">
+        <p class="texto-mono texto-verde"><span class="indicador-activo"></span> DIRECTORIO LOCAL</p>
+        <h1 id="nombre-guia" data-nombre-guia>Perfil de guía local</h1>
+        <p>Comparte tu conocimiento del territorio y crea servicios especializados y rutas para la comunidad.</p>
+      </div>
+      <dl class="estadisticas-guia">
+        <div><dt>Servicios publicados</dt><dd data-total-servicios>0</dd></div>
+        <div><dt>Rutas disponibles</dt><dd data-total-rutas>0</dd></div>
+      </dl>
+    </section>
+
+    <section class="seccion-contenido" aria-labelledby="titulo-accesibilidad">
+      <div class="encabezado-contenido">
+        <div><p class="texto-mono texto-verde">TURISMO PARA TODAS LAS PERSONAS</p><h2 id="titulo-accesibilidad">Compromiso de accesibilidad</h2></div>
+      </div>
+      <div class="rejilla-accesibilidad">
+        <article class="tarjeta-accesibilidad"><span class="icono">accessible</span><h3>Movilidad</h3><p>Describe barreras, rampas, superficies y condiciones del recorrido.</p></article>
+        <article class="tarjeta-accesibilidad"><span class="icono">hearing</span><h3>Comunicación</h3><p>Indica opciones de comunicación, interpretación o apoyos disponibles.</p></article>
+        <article class="tarjeta-accesibilidad"><span class="icono">visibility</span><h3>Experiencia sensorial</h3><p>Comparte detalles útiles sobre iluminación, sonido y orientación.</p></article>
+      </div>
+    </section>
+
+    <section class="panel-publicar" aria-labelledby="titulo-servicios">
+      <div class="encabezado-panel">
+        <div><p class="texto-mono texto-verde">TU OFERTA LOCAL</p><h2 id="titulo-servicios">Servicios especializados</h2></div>
+        <span class="icono icono-panel">workspace_premium</span>
+      </div>
+      <form id="formulario-servicio" class="formulario-comunidad" data-requiere-sesion data-rol-requerido="guia">
+        <div class="rejilla-formulario">
+          <label class="campo-comunidad">Nombre del servicio<input name="nombre" maxlength="80" placeholder="Ej. Recorrido histórico accesible" required></label>
+          <label class="campo-comunidad">Ciudad o zona<input name="ubicacion" maxlength="80" placeholder="Ej. Medellín, Centro" required></label>
+          <label class="campo-comunidad campo-completo">Descripción<textarea name="descripcion" rows="3" maxlength="500" placeholder="Describe el servicio y sus características de accesibilidad..." required></textarea></label>
+          <label class="campo-comunidad">Precio por persona (opcional)<input name="precio" maxlength="40" placeholder="Ej. $35.000"></label>
+        </div>
+        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Publicar servicio <span class="icono">send</span></button></div>
+      </form>
+    </section>
+    <section class="seccion-contenido" aria-labelledby="titulo-lista-servicios">
+      <div class="encabezado-contenido"><div><p class="texto-mono texto-verde">CATÁLOGO DE LA COMUNIDAD</p><h2 id="titulo-lista-servicios">Servicios disponibles</h2></div></div>
+      <div id="servicios-guia" class="rejilla-publicaciones" aria-live="polite"></div>
+    </section>
+
+    <section class="panel-publicar" aria-labelledby="titulo-rutas">
+      <div class="encabezado-panel">
+        <div><p class="texto-mono texto-ambar">RECORRIDOS Y EXPERIENCIAS</p><h2 id="titulo-rutas">Rutas disponibles</h2></div>
+        <span class="icono icono-panel">route</span>
+      </div>
+      <form id="formulario-ruta" class="formulario-comunidad" data-requiere-sesion data-rol-requerido="guia">
+        <div class="rejilla-formulario">
+          <label class="campo-comunidad">Nombre de la ruta<input name="nombre" maxlength="80" placeholder="Ej. Centro histórico a pie" required></label>
+          <label class="campo-comunidad">Ciudad o zona<input name="ubicacion" maxlength="80" placeholder="Ej. Medellín, Centro" required></label>
+          <label class="campo-comunidad campo-completo">Descripción<textarea name="descripcion" rows="3" maxlength="500" placeholder="Describe el recorrido, sus puntos de interés y accesibilidad..." required></textarea></label>
+          <label class="campo-comunidad">Duración estimada (opcional)<input name="duracion" maxlength="40" placeholder="Ej. 2 horas"></label>
+          <label class="campo-comunidad">Precio por persona (opcional)<input name="precio" maxlength="40" placeholder="Ej. $35.000"></label>
+        </div>
+        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Publicar ruta <span class="icono">send</span></button></div>
+      </form>
+    </section>
+    <section class="seccion-contenido" aria-labelledby="titulo-lista-rutas">
+      <div class="encabezado-contenido"><div><p class="texto-mono texto-ambar">PRÓXIMAS EXPERIENCIAS</p><h2 id="titulo-lista-rutas">Recorridos de guías locales</h2></div></div>
+      <div id="rutas-guia" class="lista-publicaciones" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="pie-comunidad">MapPal · Experiencias locales creadas por sus guías.</footer>
+</body>
+</html>

@@ -9,6 +9,7 @@ const nombresRoles = {
   explorador: "Explorador",
   prestador: "Prestador Local",
   administrador: "Administrador",
+  guia: "Guía Local",
 };
 
 botonesRolSesion.forEach((boton) => {
@@ -41,13 +42,24 @@ botonRecuperacion.addEventListener("click", () => {
   document.getElementById("correo-acceso").focus();
 });
 
-formularioSesion.addEventListener("submit", (evento) => {
+formularioSesion.addEventListener("submit", async (evento) => {
   evento.preventDefault();
 
   if (!formularioSesion.reportValidity()) {
     return;
   }
 
-  mensajeSesion.textContent =
-    "El formulario es válido. Para iniciar sesión, conecta el servicio de autenticación.";
+  const usuario = document.getElementById("correo-acceso").value.trim();
+  const nombre = usuario.includes("@") ? usuario.slice(0, usuario.indexOf("@")) : usuario;
+  const sesion = {
+    id: usuario.toLocaleLowerCase(),
+    nombre: nombre || usuario,
+    rol: document.querySelector(".boton-rol-sesion[aria-pressed='true']").dataset.rol,
+  };
+  sessionStorage.setItem("mappal-sesion-demo", JSON.stringify(sesion));
+  const destinosPorRol = {
+    administrador: "administracion.html",
+    guia: "GuiaLocal.html",
+  };
+  window.location.href = destinosPorRol[sesion.rol] || "index.html";
 });
