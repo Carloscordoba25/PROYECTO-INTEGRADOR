@@ -1,3 +1,7 @@
+
+import { servicios } from '../api/servicios.js';
+
+
 const botonesRolSesion = document.querySelectorAll(".boton-rol-sesion");
 const modoAcceso = document.getElementById("modo-acceso");
 const formularioSesion = document.getElementById("formulario-sesion");
@@ -9,7 +13,9 @@ const nombresRoles = {
   explorador: "Explorador",
   prestador: "Prestador Local",
   administrador: "Administrador",
+
   guia: "Guía Local",
+
 };
 
 botonesRolSesion.forEach((boton) => {
@@ -62,4 +68,20 @@ formularioSesion.addEventListener("submit", async (evento) => {
     guia: "GuiaLocal.html",
   };
   window.location.href = destinosPorRol[sesion.rol] || "index.html";
+
+  const correo = document.getElementById("correo-acceso").value;
+  const contrasena = document.getElementById("contrasena-acceso").value;
+
+  const resultado = await servicios.autenticarUsuario(correo, contrasena);
+
+  if (resultado.ok) {
+    mensajeSesion.textContent = "Sesión iniciada correctamente";
+    mensajeSesion.style.color = "green";
+    mensajeSesion.style.display = "block";
+  } else {
+    mensajeSesion.textContent = resultado.error;
+    mensajeSesion.style.color = "red";
+    mensajeSesion.style.display = "block";
+  }
+
 });

@@ -9,7 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
   <script src="../controller/inicio-sesion.js" defer></script>
+
+  <script type="module" src="../controller/inicio-sesion.js"></script>
+
 </head>
 <body class="pagina-sesion">
   <main class="contenedor-sesion">
@@ -68,8 +72,11 @@
           <span class="icono">store</span> Prestador Local</button>
         <button class="boton-rol-sesion" type="button" data-rol="administrador" aria-pressed="false">
           <span class="icono">admin_panel_settings</span> Administrador</button>
+
         <button class="boton-rol-sesion" type="button" data-rol="guia" aria-pressed="false">
           <span class="icono">tour</span> Guía Local</button>
+
+
       </div>
       <form id="formulario-sesion" class="formulario-sesion">
         <div class="campo-sesion">
@@ -101,8 +108,13 @@
       <div class="separador-acceso">
         <span>Acceso rápido</span>
       </div>
+
       <p class="aviso-acceso-rapido">Modo demostración: cualquier usuario y contraseña no vacíos inician una sesión local en este navegador. La autenticación real requiere conectar el servicio del proyecto.</p>
       <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="Registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a>
+
+      <p class="aviso-acceso-rapido">Los proveedores externos estarán disponibles cuando se conecte el servicio de autenticación.</p>
+      <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="html/registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a>
+
       </div>
     </section>
   </main>
