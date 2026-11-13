@@ -3,57 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Inicia y consulta discusiones y alertas de la comunidad viajera.">
+  <meta name="description" content="Información sobre las alertas comunitarias de MapPal.">
   <title>Alertas comunitarias | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../api/storage.js" defer></script>
-  <script src="../api/servicios.js" defer></script>
-  <script src="../controller/app.js" defer></script>
+  <script type="module" src="../controller/app.js"></script>
 </head>
 <body class="pagina-comunidad" data-page="alertas">
   <header class="barra-comunidad">
     <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
     <nav class="navegacion-comunidad" aria-label="Navegación principal">
-      <a href="index.html">Explorar destinos</a>
-      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="index.html">Explorar lugares</a>
+      <a href="canalesEnVivo.html">Compartir lugar</a>
       <a class="enlace-activo" href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
       <a href="GuiaLocal.html">Guía local</a>
-      <a href="perfilViajero.html">Perfil del viajero</a>
+      <a href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-administracion" href="administracion.html" hidden>Administración</a>
     </nav>
     <div class="acciones-comunidad">
       <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
-      <a class="boton boton-primario enlace-crear" href="#formulario-discusion">＋ Iniciar discusión</a>
       <button class="boton boton-secundario boton-cerrar-sesion" type="button" hidden>Cerrar sesión</button>
     </div>
   </header>
   <main class="contenedor-pagina">
     <section class="encabezado-pagina">
-      <p class="texto-mono texto-ambar"><span class="punto-ambar"></span> ALERTAS Y CONVERSACIONES COMUNITARIAS</p>
-      <h1>Alertas comunitarias</h1>
-      <p>Inicia una discusión sobre una situación o comparte información útil para otros viajeros.</p>
+      <p class="texto-mono texto-ambar"><span class="punto-ambar"></span> ALERTAS COMUNITARIAS</p>
+      <h1>Alertas y discusiones</h1>
+      <p>Esta sección estará disponible cuando el servicio de alertas se incorpore al API.</p>
     </section>
-    <section class="panel-publicar panel-alerta" aria-labelledby="titulo-iniciar-discusion">
-      <div class="encabezado-panel">
-        <div><p class="texto-mono texto-ambar">INFORMACIÓN PARA VIAJEROS</p><h2 id="titulo-iniciar-discusion">Inicia una discusión</h2></div>
-        <span class="icono icono-panel">campaign</span>
-      </div>
-      <form id="formulario-discusion" class="formulario-comunidad" data-requiere-sesion>
-        <div class="rejilla-formulario">
-          <label class="campo-comunidad">Tema<input name="titulo" maxlength="100" placeholder="Ej. ¿Cómo está el transporte esta noche?" required></label>
-          <label class="campo-comunidad">Ciudad o zona<input name="ubicacion" maxlength="80" placeholder="Ej. Centro, Medellín" required></label>
-          <label class="campo-comunidad campo-completo">Detalles<textarea name="descripcion" rows="3" maxlength="700" placeholder="Explica la situación o pregunta a la comunidad..." required></textarea></label>
-        </div>
-        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Publicar discusión <span class="icono">send</span></button></div>
-      </form>
-    </section>
-    <section class="seccion-contenido" aria-labelledby="titulo-lista-alertas">
-      <div class="encabezado-contenido"><div><p class="texto-mono texto-ambar">INICIADAS POR VIAJEROS Y LOCALES</p><h2 id="titulo-lista-alertas">Discusiones recientes</h2></div></div>
-      <div id="discusiones-alertas" class="lista-publicaciones" aria-live="polite"></div>
+    <section class="estado-vacio" aria-label="Función aún no disponible">
+      <span class="icono icono-estado" aria-hidden="true">campaign</span>
+      <h2>Publicación de alertas aún no disponible</h2>
+      <p>El API conectado permite crear y consultar lugares, pero todavía no guarda alertas ni discusiones.</p>
+      <a class="boton boton-primario" href="index.html">Explorar lugares <span class="icono">arrow_forward</span></a>
     </section>
   </main>
-  <footer class="pie-comunidad">MapPal · Conversaciones respetuosas para una comunidad viajera más informada.</footer>
+  <footer class="pie-comunidad">MapPal · Consulta lugares compartidos por la comunidad.</footer>
 </body>
 </html>

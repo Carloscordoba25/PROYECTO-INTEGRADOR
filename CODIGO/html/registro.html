@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crea tu cuenta de MapPal.">
+  <title>Crear cuenta | MapPal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../controller/registro.js"></script>
+</head>
+<body class="pagina-registro">
+  <main class="contenedor-registro">
+    <header class="encabezado-registro">
+      <div class="marca-registro">
+        <div class="icono-marca"><span class="icono">explore</span></div>
+        <div>
+          <div class="metadatos-registro"><span class="etiqueta-protocolo">MapPal</span><span class="identificador-sistema">RED COMUNITARIA</span></div>
+          <h1>Crear cuenta</h1>
+        </div>
+      </div>
+      <div class="estado-nodo"><span class="indicador-activo"></span><span>Tu cuenta se guardará en este dispositivo.</span></div>
+    </header>
+
+    <form id="formulario-registro" class="formulario-registro">
+      <section class="selector-perfil" aria-label="Selecciona tu tipo de cuenta">
+        <button id="boton-turista" class="opcion-perfil perfil-seleccionado" type="button" data-rol="turista" aria-pressed="true">
+          <span class="icono-perfil"><span class="icono">person_pin_circle</span></span>
+          <span class="texto-opcion-perfil">
+            <span class="fila-opcion-perfil"><span class="titulo-opcion">Turista / Viajero</span><span id="insignia-turista" class="insignia-activa">Activo</span></span>
+            <span class="descripcion-opcion">Explora y guarda tus lugares favoritos.</span>
+          </span>
+        </button>
+        <button id="boton-prestador" class="opcion-perfil" type="button" data-rol="prestador" aria-pressed="false">
+          <span class="icono-perfil"><span class="icono">store</span></span>
+          <span class="texto-opcion-perfil">
+            <span class="fila-opcion-perfil"><span class="titulo-opcion">Prestador Local</span><span id="insignia-prestador" class="insignia-activa" hidden>Activo</span></span>
+            <span class="descripcion-opcion">Comparte lugares de interés con la comunidad.</span>
+          </span>
+        </button>
+      </section>
+
+      <section class="seccion-registro" aria-labelledby="titulo-credenciales">
+        <div class="encabezado-seccion">
+          <div class="titulo-seccion"><span class="etiqueta-fase">CUENTA</span><h2 id="titulo-credenciales">Tus datos de acceso</h2></div>
+          <span class="nota-seccion">Completa todos los campos</span>
+        </div>
+        <div class="rejilla-campos">
+          <div class="campo campo-ancho">
+            <label for="nombre-registro"><span class="icono">badge</span> Nombre visible</label>
+            <input id="nombre-registro" name="nombre" type="text" maxlength="80" autocomplete="name" required>
+          </div>
+          <div class="campo campo-ancho">
+            <label for="correo-registro"><span class="icono">mail</span> Correo electrónico</label>
+            <input id="correo-registro" name="correo" type="email" placeholder="usuario@dominio.com" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="contrasena-registro"><span class="icono">lock</span> Contraseña</label>
+            <input id="contrasena-registro" name="contrasena" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+          <div class="campo">
+            <label for="confirmacion-contrasena"><span class="icono">check_circle</span> Confirmar contraseña</label>
+            <input id="confirmacion-contrasena" name="confirmacion" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+        </div>
+      </section>
+
+      <div class="acciones-registro">
+        <button class="boton-crear-cuenta" type="submit">
+          <span class="icono">person_add</span>
+          <span>Crear cuenta</span>
+        </button>
+        <p id="mensaje-registro" class="mensaje-formulario" role="status" aria-live="polite"></p>
+        <p class="enlace-inicio-sesion">¿Ya tienes una cuenta? <a href="InicioSesion.html">Inicia sesión <span class="icono">arrow_forward</span></a></p>
+      </div>
+    </form>
+
+    <footer class="pie-registro">
+      <a href="index.html">Volver a MapPal</a>
+      <span>Tu comunidad empieza aquí.</span>
+    </footer>
+  </main>
+</body>
+</html>

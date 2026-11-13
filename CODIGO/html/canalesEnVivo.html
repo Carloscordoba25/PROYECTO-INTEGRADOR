@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explora y comparte lugares recomendados por viajeros y residentes.">
-  <title>Canales en vivo | MapPal</title>
+  <meta name="description" content="Comparte lugares recomendados con la comunidad MapPal.">
+  <title>Compartir un lugar | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../api/storage.js" defer></script>
-  <script src="../api/servicios.js" defer></script>
-  <script src="../controller/app.js" defer></script>
+  <script type="module" src="../controller/app.js"></script>
 </head>
 <body class="pagina-comunidad" data-page="canales">
   <header class="barra-comunidad">
     <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
     <nav class="navegacion-comunidad" aria-label="Navegación principal">
-      <a href="index.html">Explorar destinos</a>
-      <a class="enlace-activo" href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="index.html">Explorar lugares</a>
+      <a class="enlace-activo" href="canalesEnVivo.html">Compartir lugar</a>
       <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
       <a href="GuiaLocal.html">Guía local</a>
-      <a href="perfilViajero.html">Perfil del viajero</a>
+      <a href="perfilViajero.html">Mis favoritos</a>
+      <a class="enlace-administracion" href="administracion.html" hidden>Administración</a>
     </nav>
     <div class="acciones-comunidad">
       <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
@@ -31,22 +30,37 @@
   </header>
   <main class="contenedor-pagina">
     <section class="encabezado-pagina">
-      <p class="texto-mono texto-verde"><span class="indicador-activo"></span> CANALES DE VIAJEROS Y LOCALES</p>
-      <h1>Canales en vivo</h1>
-      <p>Recomendaciones de lugares compartidas por la comunidad. Cada publicación aparecerá también en Inicio.</p>
+      <p class="texto-mono texto-verde"><span class="indicador-activo"></span> MAPA COMUNITARIO</p>
+      <h1>Comparte un lugar</h1>
+      <p>Agrega una dirección, coordenadas y categoría para que otras personas encuentren el lugar.</p>
     </section>
     <section class="panel-publicar" aria-labelledby="titulo-publicar-lugar">
       <div class="encabezado-panel">
-        <div><p class="texto-mono texto-verde">COMPARTE CON LA COMUNIDAD</p><h2 id="titulo-publicar-lugar">Recomienda un lugar</h2></div>
+        <div><p class="texto-mono texto-verde">NUEVA RECOMENDACIÓN</p><h2 id="titulo-publicar-lugar">Datos del lugar</h2></div>
         <span class="icono icono-panel">add_location_alt</span>
       </div>
-      <form id="formulario-lugar" class="formulario-comunidad" data-requiere-sesion>
+      <form id="formulario-lugar" class="formulario-comunidad">
         <div class="rejilla-formulario">
-          <label class="campo-comunidad">Nombre del lugar<input name="nombre" maxlength="80" placeholder="Ej. Café del barrio" required></label>
-          <label class="campo-comunidad">Ciudad o zona<input name="ubicacion" maxlength="80" placeholder="Ej. Medellín, Laureles" required></label>
-          <label class="campo-comunidad campo-completo">¿Qué recomiendas de este lugar?<textarea name="descripcion" rows="3" maxlength="500" placeholder="Comparte tu experiencia para ayudar a otros viajeros..." required></textarea></label>
+          <label class="campo-comunidad">Nombre del lugar<input name="nombre" maxlength="100" placeholder="Ej. Café del barrio" required></label>
+          <label class="campo-comunidad">Categoría
+            <input name="categoria" list="categorias-lugar" maxlength="60" placeholder="Ej. Gastronomía" required>
+            <datalist id="categorias-lugar">
+              <option value="Gastronomía"></option>
+              <option value="Alojamiento"></option>
+              <option value="Comercio"></option>
+              <option value="Cultura"></option>
+              <option value="Naturaleza"></option>
+              <option value="Otro"></option>
+            </datalist>
+          </label>
+          <label class="campo-comunidad campo-completo">Dirección<input name="direccion" maxlength="200" placeholder="Calle, ciudad y país" required></label>
+          <label class="campo-comunidad">Latitud<input name="lat" type="number" min="-90" max="90" step="any" placeholder="Ej. 6.2442" required></label>
+          <label class="campo-comunidad">Longitud<input name="lng" type="number" min="-180" max="180" step="any" placeholder="Ej. -75.5812" required></label>
         </div>
-        <div class="fila-formulario"><p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p><button class="boton boton-primario" type="submit">Publicar recomendación <span class="icono">send</span></button></div>
+        <div class="fila-formulario">
+          <p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p>
+          <button class="boton boton-primario" type="submit">Publicar lugar <span class="icono">send</span></button>
+        </div>
       </form>
     </section>
     <section class="seccion-contenido" aria-labelledby="titulo-publicaciones">
@@ -54,6 +68,6 @@
       <div id="lugares-canales" class="rejilla-publicaciones" aria-live="polite"></div>
     </section>
   </main>
-  <footer class="pie-comunidad">MapPal · Los lugares publicados aquí también se muestran en Inicio.</footer>
+  <footer class="pie-comunidad">MapPal · Tus recomendaciones se guardan en este navegador.</footer>
 </body>
 </html>
