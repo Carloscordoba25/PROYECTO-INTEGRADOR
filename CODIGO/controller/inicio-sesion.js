@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-
-import { servicios } from '../api/servicios.js';
-
-
->>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
-const botonesRolSesion = document.querySelectorAll(".boton-rol-sesion");
-=======
 import { servicios } from "../api/servicios.js";
 
 const botonesRol = document.querySelectorAll(".boton-rol-sesion");
->>>>>>> Stashed changes
 const modoAcceso = document.getElementById("modo-acceso");
 const formulario = document.getElementById("formulario-sesion");
 const mensaje = document.getElementById("mensaje-sesion");
@@ -22,9 +11,6 @@ const nombresRoles = {
   turista: "Turista",
   prestador: "Prestador Local",
   administrador: "Administrador",
-
-  guia: "Guía Local",
-
 };
 
 function mostrarMensaje(texto, esError = false) {
@@ -66,12 +52,11 @@ formulario.addEventListener("submit", async (evento) => {
   if (!formulario.reportValidity()) return;
 
   const correo = document.getElementById("correo-acceso").value.trim();
-  const clave = contrasena.value;
   const botonEnviar = formulario.querySelector('[type="submit"]');
   botonEnviar.disabled = true;
 
   try {
-    const resultado = await servicios.autenticarUsuario(correo, clave);
+    const resultado = await servicios.autenticarUsuario(correo, contrasena.value);
     if (!resultado.ok) {
       mostrarMensaje(resultado.error, true);
       return;
@@ -89,10 +74,7 @@ formulario.addEventListener("submit", async (evento) => {
       return;
     }
 
-    const destinosPorRol = {
-      administrador: "administracion.html",
-      guia: "GuiaLocal.html",
-    };
+    const destinosPorRol = { administrador: "administracion.html" };
     window.location.assign(destinosPorRol[resultado.data.rol] || "index.html");
   } catch (error) {
     console.error("No se pudo iniciar sesión:", error);
@@ -100,40 +82,4 @@ formulario.addEventListener("submit", async (evento) => {
   } finally {
     botonEnviar.disabled = false;
   }
-<<<<<<< Updated upstream
-
-  const usuario = document.getElementById("correo-acceso").value.trim();
-  const nombre = usuario.includes("@") ? usuario.slice(0, usuario.indexOf("@")) : usuario;
-  const sesion = {
-    id: usuario.toLocaleLowerCase(),
-    nombre: nombre || usuario,
-    rol: document.querySelector(".boton-rol-sesion[aria-pressed='true']").dataset.rol,
-  };
-  sessionStorage.setItem("mappal-sesion-demo", JSON.stringify(sesion));
-  const destinosPorRol = {
-    administrador: "administracion.html",
-    guia: "GuiaLocal.html",
-  };
-  window.location.href = destinosPorRol[sesion.rol] || "index.html";
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-=======
-
-  const correo = document.getElementById("correo-acceso").value;
-  const contrasena = document.getElementById("contrasena-acceso").value;
-
-  const resultado = await servicios.autenticarUsuario(correo, contrasena);
-
-  if (resultado.ok) {
-    mensajeSesion.textContent = "Sesión iniciada correctamente";
-    mensajeSesion.style.color = "green";
-    mensajeSesion.style.display = "block";
-  } else {
-    mensajeSesion.textContent = resultado.error;
-    mensajeSesion.style.color = "red";
-    mensajeSesion.style.display = "block";
-  }
-
->>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 });

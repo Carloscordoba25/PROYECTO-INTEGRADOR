@@ -3,45 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Accede a tu identidad comunitaria de MappAl.">
-  <title>Iniciar sesión | MappAl</title>
+  <meta name="description" content="Inicia sesión para administrar tus lugares y favoritos en MapPal.">
+  <title>Iniciar sesión | MapPal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  <script src="../controller/inicio-sesion.js" defer></script>
-=======
-
   <script type="module" src="../controller/inicio-sesion.js"></script>
-
->>>>>>> Stashed changes
-=======
-
-  <script src="../controller/inicio-sesion.js" defer></script>
-
-  <script type="module" src="../controller/inicio-sesion.js"></script>
-
->>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
 </head>
 <body class="pagina-sesion">
   <main class="contenedor-sesion">
-    <!-- Módulo: presentación de la red -->
-    <section class="panel-presentacion-sesion" aria-label="Información de MappAl">
-      <div class="marca-sesion">
+    <section class="panel-presentacion-sesion" aria-label="Información de MapPal">
+      <a class="marca-sesion" href="index.html">
         <span class="icono icono-marca-sesion">explore</span>
-        <span class="nombre-marca-sesion">Mapp<span>Al</span></span>
+        <span class="nombre-marca-sesion">Map<span>Pal</span></span>
         <span class="estado-sesion">Servicio local de MapPal</span>
-      </div>
+      </a>
       <div class="introduccion-sesion">
-        <p class="texto-mono texto-verde">Inteligencia geocomunitaria</p>
+        <p class="texto-mono texto-verde">Comunidad viajera</p>
         <h1>Explora y comparte lugares con la comunidad.</h1>
         <p>Inicia sesión para recomendar lugares y guardar tus favoritos en este navegador.</p>
       </div>
       <div class="resumen-red">
         <div class="encabezado-resumen">
-          <span><span class="indicador-activo"></span> Red en Tiempo Real</span>
+          <span><span class="indicador-activo"></span> Red comunitaria</span>
           <span class="etiqueta-auditoria">Disponible localmente</span>
         </div>
         <div class="metricas-red">
@@ -67,31 +52,31 @@
       <div class="pie-presentacion-sesion"><span>MapPal</span><span>Cuenta local</span></div>
     </section>
 
-    <!-- Módulo: formulario de acceso -->
     <section class="panel-acceso-sesion" aria-labelledby="titulo-acceso">
       <div class="encabezado-acceso">
-        <div><p class="texto-mono texto-verde">Acceso seguro a la red</p><h2 id="titulo-acceso">Iniciar Sesión en MappAl</h2>
+        <div>
+          <p class="texto-mono texto-verde">Acceso a tu cuenta</p>
+          <h2 id="titulo-acceso">Iniciar sesión en MapPal</h2>
           <p>Accede a tus lugares recomendados y favoritos.</p>
         </div>
         <span id="modo-acceso" class="modo-acceso">Modo Turista</span>
       </div>
       <div class="selector-rol-sesion" role="group" aria-label="Tipo de cuenta">
         <button class="boton-rol-sesion rol-seleccionado" type="button" data-rol="turista" aria-pressed="true">
-          <span class="icono">explore</span> Turista / Viajero</button>
+          <span class="icono">explore</span> Turista / Viajero
+        </button>
         <button class="boton-rol-sesion" type="button" data-rol="prestador" aria-pressed="false">
-          <span class="icono">store</span> Prestador Local</button>
+          <span class="icono">store</span> Prestador Local
+        </button>
         <button class="boton-rol-sesion" type="button" data-rol="administrador" aria-pressed="false">
-          <span class="icono">admin_panel_settings</span> Administrador</button>
-
-        <button class="boton-rol-sesion" type="button" data-rol="guia" aria-pressed="false">
-          <span class="icono">tour</span> Guía Local</button>
-
-
+          <span class="icono">admin_panel_settings</span> Administrador
+        </button>
       </div>
       <form id="formulario-sesion" class="formulario-sesion">
         <div class="campo-sesion">
           <label for="correo-acceso">Correo electrónico</label>
-          <div class="entrada-sesion"><span class="icono">mail</span>
+          <div class="entrada-sesion">
+            <span class="icono">mail</span>
             <input id="correo-acceso" name="correo" type="email" placeholder="usuario@dominio.com" autocomplete="email" required>
           </div>
         </div>
@@ -100,7 +85,9 @@
             <label for="contrasena-acceso">Contraseña</label>
             <button id="boton-recuperacion" class="boton-enlace-sesion" type="button">¿Olvidaste tu contraseña?</button>
           </div>
-          <div class="entrada-sesion"><span class="icono">lock</span><input id="contrasena-acceso" name="contrasena" type="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+          <div class="entrada-sesion">
+            <span class="icono">lock</span>
+            <input id="contrasena-acceso" name="contrasena" type="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
             <button id="alternar-contrasena" class="boton-visibilidad" type="button" aria-label="Mostrar contraseña">
               <span class="icono">visibility</span>
             </button>
@@ -109,31 +96,14 @@
         <div class="opciones-sesion">
           <span class="duracion-sesion">La sesión se guarda en este navegador.</span>
         </div>
-        <button class="boton-acceso" type="submit"><span class="icono">login</span> Iniciar Sesión en MappAl</button>
+        <button class="boton-acceso" type="submit"><span class="icono">login</span> Iniciar sesión</button>
         <p id="mensaje-sesion" class="mensaje-formulario mensaje-sesion" role="status" aria-live="polite"></p>
       </form>
-<<<<<<< Updated upstream
-      <div class="separador-acceso">
-        <span>Acceso rápido</span>
-      </div>
-
-      <p class="aviso-acceso-rapido">Modo demostración: cualquier usuario y contraseña no vacíos inician una sesión local en este navegador. La autenticación real requiere conectar el servicio del proyecto.</p>
-      <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="Registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a>
-<<<<<<< HEAD
-=======
       <div class="enlace-registro-sesion">
         <p>¿No tienes cuenta en la red comunitaria?</p>
-        <a href="Registro.html">Regístrate aquí <span class="icono">arrow_forward</span></a>
->>>>>>> Stashed changes
-=======
-
-      <p class="aviso-acceso-rapido">Los proveedores externos estarán disponibles cuando se conecte el servicio de autenticación.</p>
-      <div class="enlace-registro-sesion"><p>¿No tienes cuenta en la red comunitaria?</p><a href="html/registro.html">Regístrate aquí como Turista o Prestador Local <span class="icono">arrow_forward</span></a>
-
->>>>>>> 7d953bf39165325696bd0a01811219fa2b59ecde
+        <a href="registro.html">Regístrate aquí <span class="icono">arrow_forward</span></a>
       </div>
     </section>
   </main>
-
 </body>
 </html>
