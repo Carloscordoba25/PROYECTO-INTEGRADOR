@@ -1,4 +1,6 @@
+
 import { servicios } from '../api/servicios.js';
+
 
 const botonTurista = document.getElementById("boton-turista");
 const botonPrestador = document.getElementById("boton-prestador");
@@ -44,13 +46,18 @@ botonPrestador.addEventListener("click", () => seleccionarPerfil("prestador"));
 contrasenaRegistro.addEventListener("input", validarContrasenas);
 confirmacionContrasena.addEventListener("input", validarContrasenas);
 
+
+formularioRegistro.addEventListener("submit", (evento) => {
+
 formularioRegistro.addEventListener("submit", async (evento) => {
+
   evento.preventDefault();
   validarContrasenas();
 
   if (!formularioRegistro.reportValidity()) {
     return;
   }
+
 
   const rolSeleccionado = document.querySelector('.perfil-seleccionado')?.dataset.rol || 'turista';
   const nombre = document.getElementById('nombre-viajero')?.value || '';
@@ -73,4 +80,5 @@ formularioRegistro.addEventListener("submit", async (evento) => {
     mensajeRegistro.style.color = 'red';
     mensajeRegistro.style.display = 'block';
   }
+
 });

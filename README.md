@@ -10,6 +10,23 @@
 **MapPal** es una plataforma web colaborativa orientada al turismo universal y la inteligencia territorial comunitaria. Su propósito es conectar viajeros internacionales, turistas con necesidades de accesibilidad, residentes locales, guías, conductores y comercios de barrio mediante una red descentralizada de información en tiempo real.
  
 La plataforma permite descubrir destinos, compartir recomendaciones honestas, reportar alertas de seguridad geolocalizadas, encontrar servicios accesibles y realizar reservas directas con prestadores locales, eliminando intermediarios.
+
+## Estructura del proyecto
+
+```text
+CODIGO/
+├── api/          # Almacenamiento y operaciones de publicaciones
+├── controller/   # Controladores de páginas y formularios
+├── css/          # Estilos
+├── html/         # Páginas del sitio; punto de entrada: index.html
+├── IMG/          # Recursos gráficos
+└── .vscode/      # Configuración del espacio de trabajo
+DOCUMENTACION/
+PROTOTIPADO/
+README.md
+```
+
+Para abrir el frontend, inicia un servidor local en la carpeta `CODIGO` y navega a `html/index.html`.
  
 ---
  

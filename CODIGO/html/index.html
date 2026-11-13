@@ -1,4 +1,64 @@
 <!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre recomendaciones y alertas compartidas por viajeros y comunidades locales.">
+  <title>Inicio | MapPal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../api/storage.js" defer></script>
+  <script src="../api/servicios.js" defer></script>
+  <script src="../controller/app.js" defer></script>
+</head>
+<body class="pagina-comunidad" data-page="inicio">
+  <header class="barra-comunidad">
+    <a class="marca-comunidad" href="index.html"><span class="icono">explore</span><span>Map<span>Pal</span></span></a>
+    <nav class="navegacion-comunidad" aria-label="Navegación principal">
+      <a class="enlace-activo" href="index.html">Explorar destinos</a>
+      <a href="canalesEnVivo.html">Canales en vivo</a>
+      <a href="SeccionAlertasComunitarias.html">Alertas comunitarias</a>
+      <a href="GuiaLocal.html">Guía local</a>
+      <a href="perfilViajero.html">Perfil del viajero</a>
+    </nav>
+    <div class="acciones-comunidad">
+      <a class="boton boton-secundario enlace-sesion" href="InicioSesion.html">Iniciar sesión</a>
+      <a class="boton boton-primario enlace-crear" href="canalesEnVivo.html">＋ Recomendar un lugar</a>
+      <button class="boton boton-secundario boton-cerrar-sesion" type="button" hidden>Cerrar sesión</button>
+    </div>
+  </header>
+  <main>
+    <section class="portada-inicio">
+      <p class="texto-mono texto-verde"><span class="indicador-activo"></span> RED COMUNITARIA DE VIAJEROS</p>
+      <h1>La comunidad que comparte el mundo real.</h1>
+      <p>Encuentra recomendaciones honestas y alertas creadas por viajeros y residentes.</p>
+      <div class="acciones-portada">
+        <a class="boton boton-primario" href="canalesEnVivo.html">Explorar canales <span class="icono">arrow_forward</span></a>
+        <a class="boton boton-secundario" href="SeccionAlertasComunitarias.html">Ver alertas comunitarias</a>
+      </div>
+    </section>
+    <section class="seccion-contenido" aria-labelledby="titulo-lugares">
+      <div class="encabezado-contenido">
+        <div><p class="texto-mono texto-verde">RECOMENDACIONES DE LA COMUNIDAD</p><h2 id="titulo-lugares">Lugares destacados</h2></div>
+        <a class="enlace-texto" href="canalesEnVivo.html">Ver canales <span class="icono">arrow_forward</span></a>
+      </div>
+      <div id="lugares-inicio" class="rejilla-publicaciones" aria-live="polite"></div>
+    </section>
+    <section class="seccion-contenido seccion-discusion" aria-labelledby="titulo-discusiones">
+      <div class="encabezado-contenido">
+        <div><p class="texto-mono texto-ambar">CONVERSACIONES RECIENTES</p><h2 id="titulo-discusiones">Discusiones calientes</h2></div>
+        <a class="enlace-texto" href="SeccionAlertasComunitarias.html">Ir a alertas <span class="icono">arrow_forward</span></a>
+      </div>
+      <div id="discusiones-inicio" class="lista-publicaciones" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="pie-comunidad">MapPal · Recomendaciones y alertas construidas por la comunidad.</footer>
+</body>
+</html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -309,3 +369,4 @@
   
   </body>
 </html>
+

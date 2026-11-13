@@ -1,4 +1,6 @@
+
 import { servicios } from '../api/servicios.js';
+
 
 const botonesRolSesion = document.querySelectorAll(".boton-rol-sesion");
 const modoAcceso = document.getElementById("modo-acceso");
@@ -11,6 +13,9 @@ const nombresRoles = {
   explorador: "Explorador",
   prestador: "Prestador Local",
   administrador: "Administrador",
+
+  guia: "Guía Local",
+
 };
 
 botonesRolSesion.forEach((boton) => {
@@ -50,6 +55,20 @@ formularioSesion.addEventListener("submit", async (evento) => {
     return;
   }
 
+  const usuario = document.getElementById("correo-acceso").value.trim();
+  const nombre = usuario.includes("@") ? usuario.slice(0, usuario.indexOf("@")) : usuario;
+  const sesion = {
+    id: usuario.toLocaleLowerCase(),
+    nombre: nombre || usuario,
+    rol: document.querySelector(".boton-rol-sesion[aria-pressed='true']").dataset.rol,
+  };
+  sessionStorage.setItem("mappal-sesion-demo", JSON.stringify(sesion));
+  const destinosPorRol = {
+    administrador: "administracion.html",
+    guia: "GuiaLocal.html",
+  };
+  window.location.href = destinosPorRol[sesion.rol] || "index.html";
+
   const correo = document.getElementById("correo-acceso").value;
   const contrasena = document.getElementById("contrasena-acceso").value;
 
@@ -64,4 +83,5 @@ formularioSesion.addEventListener("submit", async (evento) => {
     mensajeSesion.style.color = "red";
     mensajeSesion.style.display = "block";
   }
+
 });
