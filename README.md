@@ -30,7 +30,7 @@ Para abrir el frontend, inicia un servidor local en la carpeta `CODIGO` y navega
 
 ### Cuentas y moderación local
 
-El frontend crea las cuentas de prueba de administración al intentar iniciar sesión o registrarse. Las personas administradoras pueden editar y eliminar cualquier lugar; turistas y prestadores pueden editar o eliminar únicamente los lugares que publicaron. Las cuentas y publicaciones se guardan en `localStorage` del navegador y no se sincronizan entre dispositivos.
+El frontend crea las cuentas de prueba de administración al intentar iniciar sesión o registrarse. Las personas administradoras pueden editar y eliminar cualquier lugar; turistas y prestadores pueden editar o eliminar únicamente los lugares que publicaron. Las publicaciones pueden incluir una descripción y una imagen JPG, PNG o WebP de hasta 10 MB, que se optimiza y guarda junto con los datos del lugar. Las cuentas y publicaciones se guardan en `localStorage` del navegador y no se sincronizan entre dispositivos.
  
 ---
  
