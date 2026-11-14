@@ -1201,6 +1201,15 @@
     font-weight: 700;
 }
 
+.descripcion-publicacion {
+    margin: 0 0 12px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
 .resumen-moderacion {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));

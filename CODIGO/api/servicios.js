@@ -186,7 +186,7 @@ export const servicios = {
     },
 
     // Crear un lugar
-    crearLugar({ nombre, direccion, lat, lng, categoria, usuarioId, imagen = null }) {
+    crearLugar({ nombre, direccion, lat, lng, categoria, descripcion = '', usuarioId, imagen = null }) {
         const lugares = storage.leer(KEYS.places) || [];
         const lugar = {
             id: nuevoId(),
@@ -195,6 +195,7 @@ export const servicios = {
             lat: Number(lat),
             lng: Number(lng),
             categoria,
+            descripcion,
             imagen,
             usuarioId,
             creadoEn: fechaActual(),
@@ -217,7 +218,7 @@ export const servicios = {
         }
 
         const cambiosPermitidos = {};
-        ['nombre', 'direccion', 'lat', 'lng', 'categoria'].forEach((campo) => {
+        ['nombre', 'direccion', 'lat', 'lng', 'categoria', 'descripcion'].forEach((campo) => {
             if (Object.hasOwn(cambios, campo)) cambiosPermitidos[campo] = cambios[campo];
         });
         lugares[index] = { ...lugares[index], ...cambiosPermitidos };

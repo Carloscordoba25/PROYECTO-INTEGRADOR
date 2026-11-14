@@ -109,6 +109,18 @@ function crearCampoEdicion(nombre, etiqueta, valor, opciones = {}) {
   return campo;
 }
 
+function crearCampoDescripcion(valor = "") {
+  const campo = crearElemento("label", "campo-comunidad campo-completo", "Descripción");
+  const areaTexto = document.createElement("textarea");
+  areaTexto.name = "descripcion";
+  areaTexto.value = String(valor ?? "");
+  areaTexto.maxLength = 1000;
+  areaTexto.rows = 4;
+  areaTexto.placeholder = "¿Qué hace especial este lugar?";
+  campo.append(areaTexto);
+  return campo;
+}
+
 function crearFormularioEdicion(lugar) {
   const formulario = crearElemento("form", "formulario-edicion");
   formulario.dataset.formularioEdicion = "true";
@@ -117,6 +129,7 @@ function crearFormularioEdicion(lugar) {
     crearCampoEdicion("nombre", "Nombre del lugar", lugar.nombre, { maxLength: 100 }),
     crearCampoEdicion("categoria", "Categoría", lugar.categoria, { maxLength: 60 }),
     crearCampoEdicion("direccion", "Dirección", lugar.direccion, { completo: true }),
+    crearCampoDescripcion(lugar.descripcion),
     crearCampoEdicion("lat", "Latitud", lugar.lat, {
       tipo: "number",
       min: -90,
@@ -178,6 +191,9 @@ function crearTarjetaLugar(lugar, favoritos) {
   tarjeta.append(
     crearElemento("h3", "", lugar.nombre),
     crearElemento("p", "ubicacion-publicacion", lugar.direccion),
+    ...(lugar.descripcion?.trim()
+      ? [crearElemento("p", "descripcion-publicacion", lugar.descripcion)]
+      : []),
     crearElemento(
       "p",
       "detalle-guia",
@@ -306,6 +322,7 @@ function configurarFormularioLugar() {
         lat,
         lng,
         categoria: datos.get("categoria").trim(),
+        descripcion: datos.get("descripcion").trim(),
         imagen,
         usuarioId: sesion.id,
       });
@@ -465,6 +482,7 @@ function configurarAccionesLugares() {
     const nombre = String(datos.get("nombre")).trim();
     const direccion = String(datos.get("direccion")).trim();
     const categoria = String(datos.get("categoria")).trim();
+    const descripcion = String(datos.get("descripcion") || "").trim();
     const lat = Number(datos.get("lat"));
     const lng = Number(datos.get("lng"));
     if (!nombre || !direccion || !categoria) {
@@ -494,7 +512,7 @@ function configurarAccionesLugares() {
 
     const resultado = servicios.actualizarLugar(
       formulario.dataset.lugarId,
-      { nombre, direccion, categoria, lat, lng },
+      { nombre, direccion, categoria, descripcion, lat, lng },
       sesion
     );
     if (!resultado.ok) {
