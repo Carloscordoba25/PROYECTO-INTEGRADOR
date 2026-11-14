@@ -27,6 +27,10 @@ README.md
 ```
 
 Para abrir el frontend, inicia un servidor local en la carpeta `CODIGO` y navega a `html/index.html`.
+
+### Cuentas y moderación local
+
+El frontend crea las cuentas de prueba de administración al intentar iniciar sesión o registrarse. Las personas administradoras pueden editar y eliminar cualquier lugar; turistas y prestadores pueden editar o eliminar únicamente los lugares que publicaron. Las cuentas y publicaciones se guardan en `localStorage` del navegador y no se sincronizan entre dispositivos.
  
 ---
  
