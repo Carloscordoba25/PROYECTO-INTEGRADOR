@@ -56,6 +56,10 @@
           <label class="campo-comunidad campo-completo">Dirección<input name="direccion" maxlength="200" placeholder="Calle, ciudad y país" required></label>
           <label class="campo-comunidad">Latitud<input name="lat" type="number" min="-90" max="90" step="any" placeholder="Ej. 6.2442" required></label>
           <label class="campo-comunidad">Longitud<input name="lng" type="number" min="-180" max="180" step="any" placeholder="Ej. -75.5812" required></label>
+          <label class="campo-comunidad campo-completo">Imagen del lugar (opcional)
+            <input name="imagen" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+            <span class="ayuda-campo">JPG, PNG o WebP; máximo 10 MB. La imagen se optimiza antes de guardarse.</span>
+          </label>
         </div>
         <div class="fila-formulario">
           <p class="mensaje-formulario" data-mensaje-formulario role="status" aria-live="polite"></p>

@@ -23,6 +23,55 @@ function mostrarMensaje(contenedor, texto, esError = false) {
   contenedor.replaceChildren(mensaje);
 }
 
+async function procesarImagenLugar(archivo) {
+  if (!archivo || archivo.size === 0) return null;
+
+  const tiposPermitidos = ["image/jpeg", "image/png", "image/webp"];
+  if (!tiposPermitidos.includes(archivo.type)) {
+    throw new Error("Selecciona una imagen JPG, PNG o WebP.");
+  }
+  if (archivo.size > 10 * 1024 * 1024) {
+    throw new Error("La imagen no puede superar los 10 MB.");
+  }
+
+  const urlTemporal = URL.createObjectURL(archivo);
+  try {
+    const imagen = await new Promise((resolver, rechazar) => {
+      const elementoImagen = new Image();
+      elementoImagen.onload = () => resolver(elementoImagen);
+      elementoImagen.onerror = () => rechazar(new Error("No se pudo leer la imagen seleccionada."));
+      elementoImagen.src = urlTemporal;
+    });
+
+    if (imagen.naturalWidth * imagen.naturalHeight > 40000000) {
+      throw new Error("La resolución de la imagen es demasiado grande.");
+    }
+
+    const dimensionMaxima = 1200;
+    const escala = Math.min(
+      1,
+      dimensionMaxima / Math.max(imagen.naturalWidth, imagen.naturalHeight)
+    );
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(imagen.naturalWidth * escala);
+    canvas.height = Math.round(imagen.naturalHeight * escala);
+
+    const contexto = canvas.getContext("2d");
+    if (!contexto) throw new Error("No se pudo procesar la imagen.");
+    contexto.fillStyle = "#ffffff";
+    contexto.fillRect(0, 0, canvas.width, canvas.height);
+    contexto.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+
+    const imagenOptimizada = canvas.toDataURL("image/jpeg", 0.82);
+    if (!imagenOptimizada.startsWith("data:image/jpeg;base64,")) {
+      throw new Error("No se pudo optimizar la imagen seleccionada.");
+    }
+    return imagenOptimizada;
+  } finally {
+    URL.revokeObjectURL(urlTemporal);
+  }
+}
+
 function obtenerLugares() {
   const resultado = servicios.listarLugares();
   if (!resultado.ok) throw new Error(resultado.error);
@@ -116,8 +165,17 @@ function mostrarMensajeAccionLugar(texto, esError = false) {
 function crearTarjetaLugar(lugar, favoritos) {
   const tarjeta = crearElemento("article", "tarjeta-publicacion tarjeta-lugar");
   tarjeta.dataset.lugarId = lugar.id;
+  tarjeta.append(crearElemento("span", "etiqueta-publicacion", lugar.categoria || "Lugar recomendado"));
+  if (lugar.imagen) {
+    const imagen = document.createElement("img");
+    imagen.className = "imagen-publicacion";
+    imagen.src = lugar.imagen;
+    imagen.alt = `Imagen de ${lugar.nombre}`;
+    imagen.loading = "lazy";
+    imagen.decoding = "async";
+    tarjeta.append(imagen);
+  }
   tarjeta.append(
-    crearElemento("span", "etiqueta-publicacion", lugar.categoria || "Lugar recomendado"),
     crearElemento("h3", "", lugar.nombre),
     crearElemento("p", "ubicacion-publicacion", lugar.direccion),
     crearElemento(
@@ -220,38 +278,51 @@ function configurarFormularioLugar() {
     return;
   }
 
-  formulario.addEventListener("submit", (evento) => {
+  formulario.addEventListener("submit", async (evento) => {
     evento.preventDefault();
     if (!formulario.reportValidity()) return;
 
+    const botonEnviar = formulario.querySelector('[type="submit"]');
+    botonEnviar.disabled = true;
     const datos = new FormData(formulario);
     const lat = Number(datos.get("lat"));
     const lng = Number(datos.get("lng"));
     if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
       mostrarMensaje(mensaje, "La latitud debe estar entre -90 y 90.", true);
+      botonEnviar.disabled = false;
       return;
     }
     if (!Number.isFinite(lng) || lng < -180 || lng > 180) {
       mostrarMensaje(mensaje, "La longitud debe estar entre -180 y 180.", true);
+      botonEnviar.disabled = false;
       return;
     }
 
-    const resultado = servicios.crearLugar({
-      nombre: datos.get("nombre").trim(),
-      direccion: datos.get("direccion").trim(),
-      lat,
-      lng,
-      categoria: datos.get("categoria"),
-      usuarioId: sesion.id,
-    });
-    if (!resultado.ok) {
-      mostrarMensaje(mensaje, resultado.error, true);
-      return;
-    }
+    try {
+      const imagen = await procesarImagenLugar(formulario.elements.imagen.files[0]);
+      const resultado = servicios.crearLugar({
+        nombre: datos.get("nombre").trim(),
+        direccion: datos.get("direccion").trim(),
+        lat,
+        lng,
+        categoria: datos.get("categoria").trim(),
+        imagen,
+        usuarioId: sesion.id,
+      });
+      if (!resultado.ok) {
+        mostrarMensaje(mensaje, resultado.error, true);
+        return;
+      }
 
-    formulario.reset();
-    mostrarMensaje(mensaje, "El lugar se guardó correctamente.");
-    renderizarLugares();
+      formulario.reset();
+      mostrarMensaje(mensaje, "El lugar se guardó correctamente.");
+      renderizarLugares();
+    } catch (error) {
+      console.error("No se pudo procesar la imagen del lugar:", error);
+      mostrarMensaje(mensaje, error.message || "No se pudo procesar la imagen.", true);
+    } finally {
+      botonEnviar.disabled = false;
+    }
   });
 }
 

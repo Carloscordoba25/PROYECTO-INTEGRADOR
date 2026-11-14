@@ -186,7 +186,7 @@ export const servicios = {
     },
 
     // Crear un lugar
-    crearLugar({ nombre, direccion, lat, lng, categoria, usuarioId }) {
+    crearLugar({ nombre, direccion, lat, lng, categoria, usuarioId, imagen = null }) {
         const lugares = storage.leer(KEYS.places) || [];
         const lugar = {
             id: nuevoId(),
@@ -195,6 +195,7 @@ export const servicios = {
             lat: Number(lat),
             lng: Number(lng),
             categoria,
+            imagen,
             usuarioId,
             creadoEn: fechaActual(),
         };
